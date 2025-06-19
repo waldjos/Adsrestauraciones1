@@ -1,10 +1,8 @@
-# .github/workflows/deploy.yml
 name: Deploy to DreamHost via SFTP
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   sftp-deploy:
@@ -16,17 +14,15 @@ jobs:
       - name: Deploy via SFTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          # Datos sensibles en Settings → Secrets
-          server:   "iad1-shared-b7-46.dreamhost.com"
+          server:   ${{ secrets.DH_SFTP_HOST }}
           username: ${{ secrets.DH_SFTP_USER }}
           password: ${{ secrets.DH_SFTP_PASS }}
           port:     22
-
-          # Toma TODO lo que hay en la raíz de tu repo:
-          local-dir:  ./
-
-          # Carpeta destino en tu servidor DreamHost:
-          server-dir: /home/dh_bfijv6/adsrestauraciones.com/
-
-          # Lista de patrones a NO subir:
-          exclude: '.git*,.github/,node_modules/,.DS_Store,.env'
+          local-dir: ./                           # toma todo tu proyecto
+          server-dir: /home/dh_bfijv6/adsrestauraciones.com  # destino en DreamHost
+          exclude:
+            - '.git*'
+            - '.github'
+            - 'node_modules'
+            - '.DS_Store'
+            - '.env'
