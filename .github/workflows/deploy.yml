@@ -3,7 +3,8 @@ name: Deploy to DreamHost via SFTP
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   sftp-deploy:
@@ -21,16 +22,11 @@ jobs:
           password: ${{ secrets.DH_SFTP_PASS }}
           port:     22
 
-          # Con ./ tomas TODO lo que hay en la raíz del repo:
+          # Toma TODO lo que hay en la raíz de tu repo:
           local-dir:  ./
 
           # Carpeta destino en tu servidor DreamHost:
           server-dir: /home/dh_bfijv6/adsrestauraciones.com/
 
           # Lista de patrones a NO subir:
-          exclude:
-            - '.git*'
-            - '.github/'
-            - 'node_modules/'
-            - '.DS_Store'
-            - '.env'
+          exclude: '.git*,.github/,node_modules/,.DS_Store,.env'
