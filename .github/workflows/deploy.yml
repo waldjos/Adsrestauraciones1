@@ -17,7 +17,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           # Datos sensibles en Settings → Secrets
-          server:   ${{ secrets.DH_SFTP_HOST }}
+          server:   "sftp.dreamhost.com"
           username: ${{ secrets.DH_SFTP_USER }}
           password: ${{ secrets.DH_SFTP_PASS }}
           port:     22
