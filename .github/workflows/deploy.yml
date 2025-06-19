@@ -9,21 +9,29 @@ jobs:
   sftp-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Deploy via SFTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server:    ${{ secrets.DH_SFTP_HOST }}
-          username:  ${{ secrets.DH_SFTP_USER }}
-          password:  ${{ secrets.DH_SFTP_PASS }}
-          port:      22
-          local-dir: ./Index.html                        # raíz de tu sitio
-          server-dir: /home/dh_bfijv6/adsrestauraciones.com
+          # Credenciales guardadas en Settings → Secrets → Actions
+          server:   ${{ secrets.DH_SFTP_HOST }}    # e.g. iad1-shared-b7-46.dreamhost.com
+          username: ${{ secrets.DH_SFTP_USER }}    # e.g. dh_bfijv6
+          password: ${{ secrets.DH_SFTP_PASS }}    # tu contraseña SFTP
+          port:     22
+
+          # local-dir: ./ indica "todo lo que esté en la raíz del repo"
+          local-dir:  ./
+
+          # Asegúrate de que esta ruta exista en tu cuenta DreamHost
+          server-dir: /home/dh_bfijv6/adsrestauraciones.com/
+
+          # Evita subir basura
           exclude:
             - .git*
             - .github/
             - node_modules/
             - .DS_Store
             - .env
+            # Opcional: habilita el modo de depuración para ver más detalles
