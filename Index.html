@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ADS Restauraciones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="assets/images/logos/ads_logo_gold.svg" alt="ADS Restauraciones">
+      <span>ADS RESTAURACIONES</span>
+    </div>
+    <div class="navbar-menu">
+      <a href="#" class="nav-icon active"><img src="assets/images/icons/icon_home.svg" alt="Inicio"></a>
+      <a href="#"><img src="assets/images/icons/icon_user-trust.svg" alt="Nosotros"></a>
+      <a href="#"><img src="assets/images/icons/icon_document.svg" alt="Formación"></a>
+      <a href="#"><img src="assets/images/icons/icon_store.svg" alt="Tienda"></a>
+      <a href="#"><img src="assets/images/icons/icon_palette.svg" alt="Servicios"></a>
+      <a href="#"><img src="assets/images/icons/icon_message.svg" alt="Contacto"></a>
+    </div>
+    <div class="navbar-auth">
+      Login | Sign in
+    </div>
+  </nav>
+
+  <!-- HERO VIDEO -->
+  <section class="hero-section">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="./assets/images/videos/restauro.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="assets/images/logos/Programa Restauro - Logo Gold 2025.png"
+           alt="Programa RESTAURO" class="hero-logo">
+      <h1 class="hero-title">Domina las técnicas de restauración avanzada</h1>
+      <p class="hero-desc">¡Inicia en junio! Últimos cupos disponibles</p>
+      <button class="hero-btn">Inscribirme ahora</button>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: NOSOTROS (oculta por defecto) -->
+  <section id="nosotrosSection" class="nosotros-section" style="display:none;">
+    <!-- Acerca de nosotros -->
+    <div class="nosotros-bg-central">
+      <div class="nosotros-col nosotros-col-logo">
+        <img src="assets/images/logos/ADS - Logo Gold 2025.png"
+             alt="ADS Restauraciones" class="nosotros-logo-grande">
+        <div class="nosotros-info">
+          <h2>Acerca de nosotros</h2>
+          <p>
+            En ADS Restauraciones nos dedicamos a la preservación y recuperación de
+            obras de arte con un enfoque profesional, ético y comprometido con el
+            valor histórico y cultural de cada pieza.<br><br>
+            Ofrecemos servicios de restauración, conservación preventiva, tasación,
+            formación especializada y asesorías para colecciones privadas e
+            institucionales.<br><br>
+            Contamos con un equipo multidisciplinario que combina técnicas
+            tradicionales con los más recientes avances en conservación,
+            garantizando intervenciones respetuosas.
+          </p>
+        </div>
+      </div>
+      <div class="nosotros-col nosotros-col-estatua">
+        <img src="assets/images/team/estatua.png"
+             alt="Estatua David" class="nosotros-estatua-central">
+      </div>
+      <div class="nosotros-col nosotros-col-director">
+        <h2>Douglas Sosa</h2>
+        <h3>Nuestro Director</h3>
+        <p>
+          Douglas Sosa es restaurador especialista en obras de arte con más de una década
+          de experiencia en intervenciones sobre piezas de alto valor histórico y simbólico.<br><br>
+          Es Licenciado en Artes del Instituto de Estudios Superiores de Artes Plásticas
+          Armando Reverón, y ha realizado estudios de maestría en Conservación y
+          Restauración de Monumentos en la Universidad Central de Venezuela.<br><br>
+          Complementó su formación con un Diplomado en Economía Cultural y una Maestría
+          Internacional en Tasación de Obras de Arte y Experiencia en Falsificaciones
+          en la Escuela Europea de Versalles (España).<br><br>
+          Su liderazgo garantiza la rigurosidad técnica, el respeto patrimonial y la
+          sensibilidad artística en cada proyecto.
+        </p>
+      </div>
+    </div>
+
+    <!-- Cita inspiradora -->
+    <blockquote class="nosotros-cita">
+      “Aún cuando hay daños irreversibles, todo puede ser restaurado”.
+      <footer>— Douglas Sosa —</footer>
+    </blockquote>
+
+    <!-- Bloque “Su fundación” -->
+    <div class="fundacion-container">
+      <div class="fundacion-image">
+        <img src="assets/images/fotos/fundacion.jpg"
+             alt="Mano restaurando una pintura">
+      </div>
+      <div class="fundacion-text">
+        <h2>Su fundación</h2>
+        <p>
+          Fue registrada legalmente en julio del 2015 pero su fundador ya tenía
+          experiencia en restauración trabajando como asistente del Dr. Fernando de Tovar,
+          participando en proyectos de restauración de Patrimonio Cultural y colecciones
+          de arte como el Panteón Nacional, Palacio de Miraflores y las Iglesias de San
+          Francisco y Dulce Nombre de Jesús en Petare.
+        </p>
+        <p>
+          Bajo la firma de ADS Restauraciones comenzamos intervenciones en
+          colecciones de arte moderno y contemporáneo en Colombia para galerías como
+          La Cometa en Bogotá, LGM Galería y Jacob Karpio Galería.
+        </p>
+        <p>
+          En Venezuela desarrollamos monumentos y restauraciones para instituciones
+          y consulados, entre ellos la Embajada de Argentina, la Embajada de Polonia,
+          el Consulado de España y el Consulado de Tailandia.
+        </p>
+        <p>
+          Trabajamos en alianza con la Galería Freites, la más grande e importante
+          de Venezuela. En 2025 restauraremos colecciones en Italia y Alemania
+          para el Kallman Museum, incluidas obras de Armando Reverón realizadas
+          por Hans Jürgen Kallman.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bloque “Nuestro equipo” -->
+    <div class="equipo-container">
+      <h2>Nuestro Equipo</h2>
+      <div class="team-container">
+        <!-- Miembro 1 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="assets/images/team/douglas.jpg" alt="Douglas Sosa">
+          </div>
+          <div class="member-info">
+            <h3>Douglas Sosa</h3>
+            <p class="role">CEO Director</p>
+          </div>
+        </div>
+        <!-- Miembro 2 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="assets/images/team/andrea.jpg" alt="Nombre 2">
+          </div>
+          <div class="member-info">
+            <h3>Andrea Britto</h3>
+            <p class="role">Asistente General</p>
+          </div>
+        </div>
+        <!-- Miembro 3 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="assets/images/team/david.jpg" alt="Nombre 3">
+          </div>
+          <div class="member-info">
+            <h3>David Sosa</h3>
+            <p class="role">Coordinador</p>
+          </div>
+        </div>
+        <!-- Miembro 4 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="assets/images/team/Ingeniero.jpeg" alt="Nombre 4">
+          </div>
+          <div class="member-info">
+            <h3>Nombre 4</h3>
+            <p class="role">Puesto 4</p>
+          </div>
+        </div>
+        <!-- Miembro 5 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="assets/images/team/luis.jpg" alt="Nombre 5">
+          </div>
+          <div class="member-info">
+            <h3>Luis Aikon</h3>
+            <p class="role">Diseñador</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Bloque “¿Por qué elegir a ADS?” como imagen completa -->
+  <div class="elegir-ads">
+    <img src="assets/images/Banners/fondonosotros.png" alt="¿Por qué elegir a ADS?">
+  </div>
+
+  </section>
+  <!-- SECCIÓN: FORMACIÓN -->
+<section id="formacionSection" class="formacion-section" style="display:none;">
+  <div class="formacion-header">
+    <h2>Formación artística especializada para transformar tu talento en oficio</h2>
+    <p class="formacion-subtitle">
+      Accede a talleres diseñados para ampliar tus conocimientos en pintura, escultura y restauración de obras.
+      Aprende con expertos, desarrolla habilidades prácticas y fortalece tu camino profesional en el arte.
+    </p>
+  </div>
+
+  <!-- Banner programa restauro -->
+  <div class="programa-banner">
+    <img src="assets/images/Banners/Bannerprogramarestauro.jpg" alt="Programa restauro">
+    <div class="programa-overlay">
+      <h3>Programa restauro</h3>
+      <p>
+        Domina la restauración de pinturas, esculturas y obras gráficas. Aprende conservación,
+        tasación e identificación de falsificaciones con enfoque teórico y práctico. ¡Postúlate hoy!
+      </p>
+    </div>
+  </div>
+  <!-- Taller de pintura -->
+  <div class="taller-banner">
+    <img src="assets/images/Banners/Bannertallerpintura.jpg" alt="Taller de pintura">
+    <div class="taller-overlay">
+      <h3>Taller de pintura</h3>
+      <p>
+        Aprende técnicas de pintura y dibujo, preparación de color y soportes.
+        Cupos limitados. ¡Reserva tu lugar hoy!
+      </p>
+    </div>
+  </div>
+
+  <!-- Taller de escultura -->
+  <div class="taller-banner">
+    <img src="assets/images/Banners/Bannertallerescultura.jpg" alt="Taller de escultura">
+    <div class="taller-overlay">
+      <h3>Taller de escultura</h3>
+      <p>
+        Explora el modelado, moldes, vaciado y concepción de espacios
+        con distintos materiales. ¡Inscríbete y da forma a tus ideas!
+      </p>
+    </div>
+  </div>
+  <!-- CTA WhatsApp -->
+  <div class="cta-whatsapp">
+    <h2>¿Quieres llevar tu práctica artística al siguiente nivel?</h2>
+    <p class="cta-sub">Elige el taller que más te inspire y abre un chat en WhatsApp para reservar tu lugar.</p>
+    <div class="whatsapp-form">
+      <input
+        type="tel"
+        id="whatsappInput"
+        placeholder="Tu número de WhatsApp (solo dígitos)"
+      />
+      <button id="whatsappBtn">Enviar</button>
+    </div>
+  </div>
+
+  <!-- Aquí podrías añadir más subsecciones (módulos, fechas, etc.) -->
+</section>
+<!-- SECCIÓN: SERVICIOS -->
+<section id="serviciosSection" class="servicios-section" style="display:none;">
+  <!-- Header -->
+  <div class="servicios-header">
+    <h2>Servicios especializados para preservar, valorar y proteger el arte</h2>
+    <p class="servicios-sub">
+      Ofrecemos un portafolio de servicios profesionales orientados a la restauración,
+      valoración y certificación de obras de arte, combinando conocimiento técnico,
+      enfoque ético y sensibilidad estética.
+    </p>
+  </div>
+
+  <!-- Banner: Tasación -->
+  <div class="servicio-banner">
+    <img src="assets/images/Banners/Bannertasacion.jpg" alt="Tasación">
+    <div class="servicio-overlay">
+      <h3>Tasación</h3>
+      <p>
+        Valoramos piezas con precisión técnica y criterio profesional,
+        generando informes confiables para coleccionistas, aseguradoras
+        y entidades culturales.
+      </p>
+    </div>
+  </div>
+
+  <!-- Banner: Conservación preventiva -->
+  <div class="servicio-banner">
+    <img src="assets/images/Banners/Bannerrestauracion.jpg" alt="Conservación preventiva">
+    <div class="servicio-overlay">
+      <h3>Restauración</h3>
+      <p>
+        Recuperamos la integidad estética e historica de cada obra con intervención precisas, rspetuosas y técnicas especializadas de conservación.
+      </p>
+    </div>
+  </div>
+
+  <!-- Banner: Restauración -->
+  <div class="servicio-banner">
+    <img src="assets/images/Banners/Bannercertificacion.jpg" alt="Restauración">
+    <div class="servicio-overlay">
+      <h3>Certificación de Autenticidad</h3>
+      <p>
+        Estimamos dictámenes técnicos especializados que garantizan la autenticidad de obras de arte, respaldados por análisis formales, materiales y de procedencia.
+      </p>
+    </div>
+  </div>
+    <!-- Banner: Compra-Venta -->
+  <div class="servicio-banner">
+    <img src="assets/images/Banners/Bannercompraventa.jpg" alt="Compra-Venta">
+    <div class="servicio-overlay">
+      <h3>Compra-Venta</h3>
+      <p>
+        Asesoramos en la adquisición y comercialización de piezas artísticas,
+        garantizando transacciones seguras, justas y alineadas con el valor real
+        del mercado.
+      </p>
+    </div>
+  </div>
+  <!-- CTA WhatsApp en SERVICIOS -->
+  <div class="cta-servicios">
+    <h2>Conecta con el arte desde adentro</h2>
+    <p class="cta-servicios-sub">
+      Solicita nuestros servicios y recibe atención personalizada para la restauración,
+      conservación o valoración de tus obras. Cuéntanos qué necesitas y te contactaremos
+      por WhatsApp con una propuesta a medida.
+    </p>
+    <div class="whatsapp-form-serv">
+      <input
+        type="tel"
+        id="whatsappInput2"
+        placeholder="Tu número de WhatsApp"
+      />
+      <button id="whatsappBtn2">Enviar</button>
+    </div>
+  </div>
+
+  <!-- SECCIÓN: APRENDE A RECUPERAR -->
+  <section class="main-section">
+    <h2>Aprende a recuperar la inversión monetaria de decenas de galerías y colecciones en Latinoamérica</h2>
+    <p class="main-subtitle">Te presentamos un MÉTODO PROBADO para que aproveches la oportunidad de ser una pieza fundamental del arte</p>
+    <div class="main-benefits">
+      <div class="benefit-card">
+        <img src="assets/images/icons/edit-alt.svg" alt="">
+        <span>Técnicas tradicionales y modernas</span>
+      </div>
+      <div class="benefit-card">
+        <img src="assets/images/icons/sculpture.svg" alt="">
+        <span>Prácticas con piezas reales</span>
+      </div>
+      <div class="benefit-card">
+        <img src="assets/images/icons/laurel-user.svg" alt="">
+        <span>Certificación al finalizar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: MEZCLA ARTE Y CIENCIA -->
+  <section class="mix-section">
+    <div class="mix-text">
+      <h3>Descubre la mezcla perfecta entre el arte y la ciencia</h3>
+      <p>
+        El taller ha sido diseñado minuciosamente por Douglas Sosa, especialista en conservación
+        de colecciones de arte moderno y contemporáneo y restaurador de extraordinarias obras
+        internacionales.
+      </p>
+    </div>
+    <div class="mix-img-container">
+      <img src="assets/images/fotos/Banner_01_Body_home_1036x572.jpg"
+           alt="Taller" class="mix-img">
+    </div>
+  </section>
+
+  <!-- SECCIÓN: TESTIMONIO -->
+  <section class="testimonial-section">
+    <blockquote>
+      “Te enseñaré los pasos exactos y las estrategias, como también las herramientas y tácticas
+      que he aprendido en el ejercicio de mi carrera por más de 10 años y que sustentan mi
+      reputación internacionalmente”.
+      <br><span>Douglas Sosa.</span>
+    </blockquote>
+  </section>
+
+  <!-- SECCIÓN: BENEFICIOS Y CUPOS -->
+  <section class="beneficios-section">
+    <h2>Beneficios del programa</h2>
+    <div class="beneficios-list">
+      <div class="beneficio">
+        <img src="assets/images/icons/business-value.svg" alt="">
+        <span>Formación práctica con expertos</span>
+      </div>
+      <div class="beneficio">
+        <img src="assets/images/icons/diploma.svg" alt="">
+        <span>Certificación reconocida</span>
+      </div>
+      <div class="beneficio">
+        <img src="assets/images/icons/key.svg" alt="">
+        <span>Oportunidades laborales post-curso</span>
+      </div>
+      <div class="beneficio">
+        <img src="assets/images/icons/flask-potion.svg" alt="">
+        <span>Acceso a materiales exclusivos</span>
+      </div>
+    </div>
+    <div class="beneficios-cupos-card">
+      <div class="beneficios-cupos-img">
+        <img src="assets/images/Banners/Banner_cupos_limitados_900x520.jpg" alt="Programa Restauro">
+      </div>
+      <div class="beneficios-cupos-info">
+        <h3>Próximas fechas</h3>
+        <h2>Cupos limitados</h2>
+        <p>Inicia el 10 de junio de 2025</p>
+        <div class="beneficios-cupos-countdown">
+          <span>Faltan <b>15 días · 11h 57m 13s</b></span>
+          <p>para el gran inicio</p>
+        </div>
+        <button class="beneficios-cupos-btn">Inscribirme</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: INFO CARDS -->
+  <section class="info-cards-section">
+    <div class="info-card">
+      <h4>La duración del programa de estudios</h4>
+      <p>Es de cinco (5) módulos, cada uno de cuatro (4) semanas. Las clases serán impartidas
+         en dos días por semana, equivalente a cuatro (4) horas semanales.</p>
+    </div>
+    <div class="info-card active">
+      <h4>A QUIÉNES VA DIRIGIDO</h4>
+      <p>Capacita al personal de artes plásticas, diseño y arquitectura interesados en
+         conservación de colecciones de arte.</p>
+    </div>
+    <div class="info-card">
+      <h4>Las clases</h4>
+      <p>A partir del segundo módulo se ejecutan como taller práctico, cada uno con una duración
+         de cinco (5) semanas y cinco (5) horas semanales. Total: 116 horas académicas y 8 h de seminarios.</p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: PROGRAMA RESTAURO -->
+  <section class="programa-restauro-section">
+    <img src="assets/images/logos/Programa Restauro - Logo Gold 2025.png"
+         alt="Programa RESTAURO" class="programa-logo">
+    <h2>TODO PUEDE SER RESTAURADO</h2>
+  </section>
+
+  <!-- SECCIÓN: MÓDULOS -->
+  <section class="modulos-section">
+    <div class="modulos-tabs">
+      <div class="modulos-tabs-btns">
+        <button class="active" onclick="mostrarModulo(0)">Módulo 1</button>
+        <button onclick="mostrarModulo(1)">Módulo 2</button>
+        <button onclick="mostrarModulo(2)">Módulo 3</button>
+        <button onclick="mostrarModulo(3)">Módulo 4</button>
+        <button onclick="mostrarModulo(4)">Módulo 5</button>
+      </div>
+      <a href="#" class="modulo-pdf-btn" id="pdfBtn">Descargar PDF</a>
+    </div>
+
+    <!-- Módulo 1 -->
+    <div class="modulo-content" id="modulo-0">
+      <h3>Introducción a la conservación y restauración</h3>
+      <div class="modulo-semanas-grid">
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 1</span>
+          <ul>
+            <li><b>Clase 1:</b> Introducción a la conservación</li>
+            <li><b>Clase 2:</b> Registro e investigación del objeto</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 2</span>
+          <ul>
+            <li><b>Clase 1:</b> Historia de la restauración</li>
+            <li><b>Clase 2:</b> Identificación de patologías / diagnóstico</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 3</span>
+          <ul>
+            <li><b>Clase 1:</b> Procesos de conservación y restauración</li>
+            <li><b>Clase 2:</b> Criterios de intervención</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 4</span>
+          <ul>
+            <li><b>Clase 1:</b> Criterios aplicados al arte contemporáneo</li>
+            <li><b>Clase 2:</b> Mantenimiento y tutela</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Módulo 2 -->
+    <div class="modulo-content" id="modulo-1" style="display:none">
+      <h3>Metodología de la conservación y restauración de pinturas</h3>
+      <div class="modulo-seminario">
+        Seminario especial: <span class="seminario-pintura">La pintura</span>
+      </div>
+      <div class="modulo-semanas-grid">
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 6</span>
+          <ul>
+            <li><b>Clase 1:</b> Limpieza</li>
+            <li><b>Clase 2:</b> Limpieza</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 7</span>
+          <ul>
+            <li><b>Clase 1:</b> Consolidación</li>
+            <li><b>Clase 2:</b> Consolidación</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 8</span>
+          <ul>
+            <li><b>Clase 1:</b> Reintegro</li>
+            <li><b>Clase 2:</b> Reintegro</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 9</span>
+          <ul>
+            <li><b>Clase 1:</b> Protección</li>
+            <li><b>Clase 2:</b> Protección</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Módulo 3 -->
+    <div class="modulo-content" id="modulo-2" style="display:none">
+      <h3>Técnicas de conservación de esculturas</h3>
+      <div class="modulo-seminario">
+        Seminario especial: <span class="seminario-pintura">La escultura</span>
+      </div>
+      <div class="modulo-semanas-grid">
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 10</span>
+          <ul>
+            <li><b>Clase 1:</b> Limpieza</li>
+            <li><b>Clase 2:</b> Limpieza</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 11</span>
+          <ul>
+            <li><b>Clase 1:</b> Consolidación</li>
+            <li><b>Clase 2:</b> Consolidación</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 12</span>
+          <ul>
+            <li><b>Clase 1:</b> Reintegro</li>
+            <li><b>Clase 2:</b> Reintegro</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 13</span>
+          <ul>
+            <li><b>Clase 1:</b> Protección</li>
+            <li><b>Clase 2:</b> Protección</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Módulo 4 -->
+    <div class="modulo-content" id="modulo-3" style="display:none">
+      <h3>Conservación de obra gráfica sobre papel</h3>
+      <div class="modulo-seminario">
+        Seminario especial: <span class="seminario-pintura">El papel</span>
+      </div>
+      <div class="modulo-semanas-grid">
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 14</span>
+          <ul>
+            <li><b>Clase 1:</b> Investigación</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 15</span>
+          <ul>
+            <li><b>Clase 1:</b> Limpieza</li>
+            <li><b>Clase 2:</b> Consolidación</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 16</span>
+          <ul>
+            <li><b>Clase 1:</b> Reintegro</li>
+            <li><b>Clase 2:</b> Reintegro</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 17</span>
+          <ul>
+            <li><b>Clase 1:</b> Protección</li>
+            <li><b>Clase 2:</b> Reintegro</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Módulo 5 -->
+    <div class="modulo-content" id="modulo-4" style="display:none">
+      <h3>Tasación e identificación de falsificaciones</h3>
+      <div class="modulo-semanas-grid">
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 18</span>
+          <ul>
+            <li><b>Clase 1:</b> Método comparativo en la tasación de obras de arte</li>
+            <li><b>Clase 2:</b> Método de la oferta y la demanda</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 19</span>
+          <ul>
+            <li><b>Clase 1:</b> Aproximación a las falsificaciones</li>
+            <li><b>Clase 2:</b> Métodos de detección de falsificaciones</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 20</span>
+          <ul>
+            <li><b>Clase 1:</b> Taller práctico</li>
+            <li><b>Clase 2:</b> Taller práctico</li>
+          </ul>
+        </div>
+        <div class="semana-card">
+          <img src="assets/images/icons/icon_calendar.svg" alt="">
+          <span class="semana-title">Semana 21</span>
+          <ul>
+            <li><b>Clase 1:</b> Taller práctico</li>
+            <li><b>Clase 2:</b> Taller práctico</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Pantalla Descargar PDF -->
+    <div class="modulo-content" id="modulo-5" style="display:none">
+      <h3 class="pdf-title">¡Que no te queden dudas!</h3>
+      <p class="pdf-desc">
+        Descarga el contenido completo y más detallado de todo lo que verás durante tu aprendizaje
+      </p>
+      <a href="assets/pdf/Programa_Restauro.pdf" target="_blank" class="descargar-btn">Descargar</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-separator"></div>
+    <div class="footer-main">
+      <div class="footer-col footer-col-menu">
+        <img src="assets/images/logos/ads_logo_gold.svg" alt="ADS" class="footer-logo-main">
+        <nav class="footer-menu"></nav>
+      </div>
+      <div class="footer-col footer-col-contact">
+        <a href="#" class="footer-contact-title">
+          <img src="assets/images/icons/icon_message.svg" alt="">Contacto
+        </a>
+        <div class="footer-contact-info">
+          <div>+43 650 4290258</div>
+          <div>@ads.restauraciones</div>
+          <div>support@adsrestauraciones.com</div>
+        </div>
+      </div>
+      <div class="footer-col footer-col-newsletter">
+        <span class="footer-newsletter-label">Mantente conectado</span>
+        <h4 class="footer-newsletter-title">Recibe las últimas noticias</h4>
+        <form class="footer-newsletter-form">
+          <input type="email" placeholder="Escribe tu correo">
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-copy">
+      ADS Restauraciones 2025 © Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- SCRIPT de navegación y módulos -->
+  <script>
+    function mostrarModulo(idx) {
+      document.querySelectorAll('.modulos-tabs-btns button')
+        .forEach((btn, i) => btn.classList.toggle('active', i === idx));
+      document.getElementById('pdfBtn')?.classList.remove('active');
+      for (let i = 0; i < 6; i++) {
+        const m = document.getElementById('modulo-' + i);
+        if (m) m.style.display = (i === idx) ? 'block' : 'none';
+      }
+    }
+
+    document.getElementById('pdfBtn').onclick = function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.modulos-tabs-btns button')
+        .forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      for (let i = 0; i < 6; i++) {
+        const m = document.getElementById('modulo-' + i);
+        if (m) m.style.display = (i === 5) ? 'block' : 'none';
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.navbar-menu a');
+      // "Nosotros"
+      links[1].addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('nosotrosSection').style.display = 'block';
+        document.querySelectorAll('section:not(.nosotros-section)')
+          .forEach(sec => sec.style.display = 'none');
+        links.forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+      });
+      // "Inicio"
+      links[0].addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('nosotrosSection').style.display = 'none';
+        document.querySelectorAll('section:not(.nosotros-section)')
+          .forEach(sec => sec.style.display = '');
+        links.forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('.navbar-menu a');
+  const sections = {
+    home:    null, // el propio <section class="hero-section"> y las que van tras él
+    nosotros: document.getElementById('nosotrosSection'),
+    formacion: document.getElementById('formacionSection')
+  };
+
+  // Función genérica para mostrar una sección y ocultar las demás
+  function showSection(target) {
+    // ocultar TODO lo que esté en <section> excepto el target
+    document.querySelectorAll('section').forEach(sec => {
+      sec.style.display = (sec === target) ? '' : 'none';
+    });
+    // activar/desactivar clases
+    links.forEach(a => a.classList.remove('active'));
+  }
+
+  // Inicio (índice 0)
+  links[0].addEventListener('click', function(e) {
+    e.preventDefault();
+    showSection();                // sin argumento => todas las sections muestran su display por defecto
+    this.classList.add('active');
+  });
+
+  // Nosotros (índice 1)
+  links[1].addEventListener('click', function(e) {
+    e.preventDefault();
+    showSection(sections.nosotros);
+    this.classList.add('active');
+  });
+
+  // Formación (índice 2)
+  links[2].addEventListener('click', function(e) {
+    e.preventDefault();
+    showSection(sections.formacion);
+    this.classList.add('active');
+  });
+
+  // (Puedes seguir añadiendo handlers para los demás enlaces…)
+});
+// CTA WhatsApp
+const waBtn  = document.getElementById('whatsappBtn');
+const waInpt = document.getElementById('whatsappInput');
+waBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  let phone = waInpt.value.replace(/\D/g, '');
+  if (!phone) return alert('Por favor ingresa tu número de WhatsApp.');
+  // Número fijo de la empresa, o bien redirige al wa.me con el mismo número ingresado:
+  const base = 'https://wa.me/'; 
+  const text = encodeURIComponent('¡Hola! Quiero reservar un taller con ADS Restauraciones.');
+  window.open(`${base}${phone}?text=${text}`, '_blank');
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('.navbar-menu a');
+  const sections = {
+    home:      null,                               // sección por defecto
+    nosotros: document.getElementById('nosotrosSection'),
+    formacion: document.getElementById('formacionSection'),
+    servicios: document.getElementById('serviciosSection')
+  };
+
+  function showSection(target) {
+    document.querySelectorAll('section').forEach(sec => {
+      sec.style.display = (sec === target) ? '' : 'none';
+    });
+    links.forEach(a => a.classList.remove('active'));
+  }
+
+  // Inicio (0)
+  links[0].addEventListener('click', function(e) {
+    e.preventDefault();
+    showSection();
+    this.classList.add('active');
+  });
+  // Nosotros (1)
+  links[1].addEventListener('click', function(e) {
+    e.preventDefault();
+    showSection(sections.nosotros);
+    this.classList.add('active');
+  });
+  // Formación (2)
+  links[2].addEventListener('click', function(e) {
+    e.preventDefault();
+    showSection(sections.formacion);
+    this.classList.add('active');
+  });
+  // Tienda (3) – si la tuvieras, reemplaza con su sección
+  links[3].addEventListener('click', function(e) {
+    e.preventDefault();
+    // showSection(sections.tienda);
+    this.classList.add('active');
+  });
+  // Servicios (4)
+  links[4].addEventListener('click', function(e) {
+    e.preventDefault();
+    showSection(sections.servicios);
+    this.classList.add('active');
+  });
+  // Contacto (5) – si la tuvieras
+  links[5].addEventListener('click', function(e) {
+    e.preventDefault();
+    // showSection(sections.contacto);
+    this.classList.add('active');
+  });
+});
+// CTA WhatsApp en SERVICIOS
+const waBtn2  = document.getElementById('whatsappBtn2');
+const waIn2   = document.getElementById('whatsappInput2');
+waBtn2.addEventListener('click', function(e) {
+  e.preventDefault();
+  let phone = waIn2.value.replace(/\D/g, '');
+  if (!phone) {
+    return alert('Por favor ingresa tu número de WhatsApp.');
+  }
+  const text = encodeURIComponent('¡Hola! Quiero más información sobre sus servicios.');
+  window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+})
+  </script>
+</body>
+</html>
