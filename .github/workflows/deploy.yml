@@ -1,0 +1,29 @@
+# .github/workflows/deploy.yml
+name: Deploy to DreamHost via SFTP
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server:    ${{ secrets.DH_SFTP_HOST }}
+          username:  ${{ secrets.DH_SFTP_USER }}
+          password:  ${{ secrets.DH_SFTP_PASS }}
+          port:      22
+          local-dir: ./Index.html                        # raíz de tu sitio
+          server-dir: /home/dh_bfijv6/adsrestauraciones.com
+          exclude:
+            - .git*
+            - .github/
+            - node_modules/
+            - .DS_Store
+            - .env
