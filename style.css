@@ -36,24 +36,15 @@ body {
   gap: 16px;
 }
 .navbar-menu a {
-  display: flex;
-  align-items: center;
-  padding: 6px 12px;
-  border-radius: 12px;
-  transition: background 0.2s;
-  color: #bfa13a;
-  font-weight: 500;
-  text-decoration: none;
-  font-size: 1rem;
+  /* estilos generales */
+  transition: background .2s;
 }
-.navbar-menu a img {
-  height: 24px;
-  margin-right: 6px;
+.navbar-menu a.active {
+  background: #ffe680;      /* color de fondo amarillo */
+  border-radius: 999px;     /* redondeado */
 }
-.navbar-menu .active, .modulos-tabs .active {
-  background: #bfa13a;
-  color: #fff !important;
-  font-weight: bold;
+.navbar-menu a.active img {
+  filter: invert(25%) sepia(80%) saturate(500%); /* oscurecer el icono */
 }
 .pro-btn {
   background: #bfa13a;
@@ -143,7 +134,7 @@ body {
   font-size: 2.8rem;
   font-weight: 900;
   letter-spacing: 2px;
-  color: #bfa13a;
+  color: #fff;
   margin-bottom: 8px;
   text-shadow: 1px 1px 8px #000;
 }
@@ -2067,4 +2058,21 @@ body {
 #nosotrosSection .nosotros-col-info,
 #nosotrosSection .nosotros-col-director {
   margin-top: 20px; /* un empujón extra para cada columna de texto */
+}
+/* 1) Ocultar por defecto TODAS las secciones “dinámicas” */
+.nosotros-section,
+.formacion-section,
+.servicios-section,
+.modulos-section,
+.contacto-section {
+  display: none;
+}
+
+/* 2) Mostrar sólo la que coincida con el hash de la URL */
+.nosotros-section:target,
+.formacion-section:target,
+.servicios-section:target,
+.modulos-section:target,
+.contacto-section:target {
+  display: block;
 }
