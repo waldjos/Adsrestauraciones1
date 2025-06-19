@@ -21,4 +21,9 @@ jobs:
           local-dir: ./                                   # toma todo tu proyecto
           server-dir: /home/dh_bfijv6/adsrestauraciones.com  # destino en DreamHost
           exclude:
-            
+            - '.git*'
+            - '.github'
+            - 'node_modules'
+            - '.DS_Store'
+            - '.env'
+          git-ftp-args: --insecure
