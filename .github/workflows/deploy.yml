@@ -18,7 +18,7 @@ jobs:
           username: ${{ secrets.DH_SFTP_USER }}
           password: ${{ secrets.DH_SFTP_PASS }}
           port:     22
-          local-dir: ./                           # toma todo tu proyecto
+          local-dir: ./                                   # toma todo tu proyecto
           server-dir: /home/dh_bfijv6/adsrestauraciones.com  # destino en DreamHost
           exclude:
             - '.git*'
