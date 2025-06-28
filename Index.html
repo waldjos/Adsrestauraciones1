@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>ADS Restauraciones</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#bfa13a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <style>
@@ -12,7 +15,8 @@
     .nosotros-section,
     .formacion-section,
     .servicios-section,
-    .modulos-section {
+    .modulos-section,
+    .contacto-section {
       display: none;
     }
 
@@ -20,7 +24,19 @@
     .nosotros-section:target,
     .formacion-section:target,
     .servicios-section:target,
-    .modulos-section:target {
+    .modulos-section:target,
+    .contacto-section:target {
+      display: block;
+    }
+
+    /* Mostrar la sección principal por defecto si no hay hash */
+    .hero-section,
+    .main-section,
+    .mix-section,
+    .testimonial-section,
+    .beneficios-section,
+    .info-cards-section,
+    .programa-restauro-section {
       display: block;
     }
 
@@ -42,13 +58,18 @@
       <img src="assets/images/logos/ads_logo_gold.svg" alt="ADS Restauraciones">
       <span>ADS RESTAURACIONES</span>
     </div>
-    <nav class="navbar-menu">
-  <a href="#heroSection" class="active"><img src="assets/images/icons/icon_home.svg" alt="Inicio"></a>
-  <a href="#nosotrosSection"><img src="assets/images/icons/icon_user-trust.svg" alt="Nosotros"></a>
-  <a href="#formacionSection"><img src="assets/images/icons/icon_document.svg" alt="Formación"></a>
-  <a href="#serviciosSection"><img src="assets/images/icons/icon_palette.svg" alt="Servicios"></a>
-  <a href="#contactoSection"><img src="assets/images/icons/icon_message.svg" alt="Contacto"></a>
-</nav>
+    <button class="navbar-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbar-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav class="navbar-menu" id="navbar-menu">
+      <a href="#heroSection" class="active"><img src="assets/images/icons/icon_home.svg" alt="Inicio"></a>
+      <a href="#nosotrosSection"><img src="assets/images/icons/icon_user-trust.svg" alt="Nosotros"></a>
+      <a href="#formacionSection"><img src="assets/images/icons/icon_document.svg" alt="Formación"></a>
+      <a href="#serviciosSection"><img src="assets/images/icons/icon_palette.svg" alt="Servicios"></a>
+      <a href="#contactoSection"><img src="assets/images/icons/icon_message.svg" alt="Contacto"></a>
+    </nav>
     </div>
     <div class="navbar-auth">
       
@@ -110,9 +131,9 @@
   <!-- SECCIÓN: TESTIMONIO -->
   <section class="testimonial-section">
     <blockquote>
-      “Te enseñaré los pasos exactos y las estrategias, como también las herramientas y tácticas
+      "Te enseñaré los pasos exactos y las estrategias, como también las herramientas y tácticas
       que he aprendido en el ejercicio de mi carrera por más de 10 años y que sustentan mi
-      reputación internacionalmente”.
+      reputación internacionalmente".
       <br><span>Douglas Sosa.</span>
     </blockquote>
   </section>
@@ -449,11 +470,11 @@
 
     <!-- Cita inspiradora -->
     <blockquote class="nosotros-cita">
-      “Aún cuando hay daños irreversibles, todo puede ser restaurado”.
+      "Aún cuando hay daños irreversibles, todo puede ser restaurado".
       <footer>— Douglas Sosa —</footer>
     </blockquote>
 
-    <!-- Bloque “Su fundación” -->
+    <!-- Bloque "Su fundación" -->
     <div class="fundacion-container">
       <div class="fundacion-image">
         <img src="assets/images/fotos/fundacion.jpg" alt="Mano restaurando una pintura">
@@ -486,7 +507,7 @@
       </div>
     </div>
 
-    <!-- Bloque “Nuestro equipo” -->
+    <!-- Bloque "Nuestro equipo" -->
     <div class="equipo-container">
       <h2>Nuestro Equipo</h2>
       <div class="team-container">
@@ -542,7 +563,7 @@
         </div>
       </div>
     </div>
-    <!-- Bloque “¿Por qué elegir a ADS?” como imagen completa -->
+    <!-- Bloque "¿Por qué elegir a ADS?" como imagen completa -->
     <div class="elegir-ads">
       <img src="assets/images/Banners/fondonosotros.png" alt="¿Por qué elegir a ADS?">
     </div>
@@ -637,7 +658,7 @@
       <div class="servicio-overlay">
         <h3>Restauración</h3>
         <p>
-          Recuperamos la integidad estética e historica de cada obra con intervención precisas, rspetuosas y técnicas
+          Recuperamos la integridad estética e histórica de cada obra con intervenciones precisas, respetuosas y técnicas
           especializadas de conservación.
         </p>
       </div>
@@ -801,28 +822,133 @@
         moduloSeleccionado.classList.add('active');
       }
     }
-  </script>
-  <script>
-  // 1. Capturamos todos los enlaces del menú
-  const menuLinks = document.querySelectorAll('.navbar-menu a');
 
-  // 2. Función que pone la clase .active en el enlace cuyo href coincide con el hash actual
-  function highlightActiveLink() {
-    const currentHash = window.location.hash || '#heroSection';
-    menuLinks.forEach(link => {
-      link.classList.toggle(
-        'active',
-        link.getAttribute('href') === currentHash
-      );
+    // Función para manejar la navegación por secciones
+    function handleSectionNavigation() {
+      const currentHash = window.location.hash || '#heroSection';
+      const menuLinks = document.querySelectorAll('.navbar-menu a');
+      
+      // Actualizar enlaces activos
+      menuLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === currentHash);
+      });
+
+      // Mostrar sección correspondiente
+      const sections = document.querySelectorAll('.nosotros-section, .formacion-section, .servicios-section, .modulos-section, .contacto-section');
+      sections.forEach(section => {
+        if (section.id && `#${section.id}` === currentHash) {
+          section.style.display = 'block';
+        } else if (section.id) {
+          section.style.display = 'none';
+        }
+      });
+    }
+
+    // Función para el menú móvil
+    function toggleMobileMenu() {
+      const navbarToggle = document.querySelector('.navbar-toggle');
+      const navbarMenu = document.getElementById('navbar-menu');
+      const expanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+      
+      navbarToggle.setAttribute('aria-expanded', !expanded);
+      navbarMenu.classList.toggle('active');
+    }
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar navegación
+      handleSectionNavigation();
+      
+      // Menú móvil
+      const navbarToggle = document.querySelector('.navbar-toggle');
+      if (navbarToggle) {
+        navbarToggle.addEventListener('click', toggleMobileMenu);
+      }
+
+      // Cerrar menú móvil al hacer clic en un enlace
+      const menuLinks = document.querySelectorAll('.navbar-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const navbarMenu = document.getElementById('navbar-menu');
+          const navbarToggle = document.querySelector('.navbar-toggle');
+          navbarMenu.classList.remove('active');
+          navbarToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
     });
-  }
 
-  // 3. Re-ejecutar al cambiar el hash (clicks, history, scroll manual…)
-  window.addEventListener('hashchange', highlightActiveLink);
+    // Manejar cambios en el hash de la URL
+    window.addEventListener('hashchange', handleSectionNavigation);
 
-  // 4. Al cargar la página (para el # que venga en la URL o defecto)
-  window.addEventListener('DOMContentLoaded', highlightActiveLink);
-</script>
+    // Funcionalidad para formularios de WhatsApp
+    function handleWhatsAppForm(formId, inputId, buttonId) {
+      const form = document.getElementById(formId);
+      const input = document.getElementById(inputId);
+      const button = document.getElementById(buttonId);
+      
+      if (form && input && button) {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const phone = input.value.trim();
+          
+          if (phone) {
+            // Formatear número de teléfono
+            const formattedPhone = phone.replace(/\D/g, '');
+            const whatsappUrl = `https://wa.me/${formattedPhone}?text=Hola, estoy interesado en los servicios de ADS Restauraciones.`;
+            window.open(whatsappUrl, '_blank');
+          } else {
+            alert('Por favor, ingresa un número de teléfono válido.');
+          }
+        });
+      }
+    }
+
+    // Inicializar formularios de WhatsApp
+    document.addEventListener('DOMContentLoaded', function() {
+      handleWhatsAppForm('whatsappForm', 'whatsappInput', 'whatsappBtn');
+      handleWhatsAppForm('whatsappForm2', 'whatsappInput2', 'whatsappBtn2');
+      
+      // Formulario de contacto
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Obtener datos del formulario
+          const formData = new FormData(contactForm);
+          const email = contactForm.querySelector('input[type="email"]').value;
+          const subject = contactForm.querySelector('input[type="text"]').value;
+          const message = contactForm.querySelector('textarea').value;
+          
+          // Validar campos
+          if (!email || !subject || !message) {
+            alert('Por favor, completa todos los campos.');
+            return;
+          }
+          
+          // Simular envío (aquí puedes integrar con tu backend)
+          alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+          contactForm.reset();
+        });
+      }
+      
+      // Formulario de newsletter
+      const newsletterForm = document.querySelector('.footer-newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const email = newsletterForm.querySelector('input[type="email"]').value;
+          if (email) {
+            alert('¡Gracias por suscribirte a nuestro newsletter!');
+            newsletterForm.reset();
+          } else {
+            alert('Por favor, ingresa un email válido.');
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 
