@@ -2000,6 +2000,111 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* ===============================
+   AJUSTES RESPONSIVE ADICIONALES
+   =============================== */
+
+@media (max-width: 768px) {
+
+  /* Ajustes generales */
+  body {
+    padding-top: 70px; /* Reducir el padding para la barra de navegación más pequeña */
+  }
+
+  .navbar {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .navbar-logo span {
+    display: none; /* Ocultar el texto del logo en móviles */
+  }
+
+  /* Sección Hero */
+  .hero-section {
+    min-height: 380px;
+  }
+
+  .hero-content {
+    padding: 32px 24px;
+    gap: 12px;
+  }
+
+  .hero-logo {
+    width: 180px;
+  }
+
+  .hero-title {
+    font-size: 2rem; /* Reducir tamaño del título */
+  }
+
+  .hero-desc {
+    font-size: 1rem; /* Reducir tamaño de la descripción */
+  }
+
+  .hero-btn {
+    margin-top: 16px;
+    font-size: 1rem;
+    padding: 10px 28px;
+  }
+
+  /* Sección "Aprende a recuperar" */
+  .main-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .main-subtitle {
+    font-size: 1rem;
+  }
+
+  .main-benefits {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .benefit-card {
+    min-width: unset;
+    width: 80%;
+  }
+
+  /* Sección "Mezcla Arte y Ciencia" */
+  .mix-text {
+    padding: 32px 24px;
+  }
+
+  .mix-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .mix-text p {
+    font-size: 0.95rem;
+  }
+
+  /* Testimonio */
+  .testimonial-section blockquote {
+    font-size: 1.1rem;
+  }
+
+  /* Beneficios y Cupos */
+  .beneficios-section h2 {
+    font-size: 2rem;
+  }
+
+  .beneficios-cupos-info h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Info Cards */
+  .info-card h4 {
+    font-size: 1.3rem;
+  }
+
+  /* Programa Restauro */
+  .programa-restauro-section h2 {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 1100px) {
   .footer-main {
     flex-direction: column;
