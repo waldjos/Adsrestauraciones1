@@ -1,3 +1,55 @@
+  <script>
+    // Mostrar solo la sección activa del navbar, ocultando las demás
+    function mostrarSoloSeccionActiva() {
+      const hash = window.location.hash || '#heroSection';
+      const secciones = [
+        '#heroSection',
+        '#mainSection',
+        '#mixSection',
+        '#testimonialSection',
+        '#beneficiosSection',
+        '#infoCardsSection',
+        '#programaRestauroHeader',
+        '#modulosSection',
+        '#nosotrosSection',
+        '#formacionSection',
+        '#serviciosSection',
+        '#contactoSection'
+      ];
+      // Mostrar solo las secciones correspondientes a la pantalla principal si está en home
+      const homeSections = [
+        '#mainSection',
+        '#mixSection',
+        '#testimonialSection',
+        '#beneficiosSection',
+        '#infoCardsSection',
+        '#programaRestauroHeader',
+        '#modulosSection'
+      ];
+      secciones.forEach(id => {
+        const sec = document.querySelector(id);
+        if (sec) {
+          if (hash === '#heroSection') {
+            // Mostrar hero y todas las secciones home
+            if (id === '#heroSection' || homeSections.includes(id)) {
+              sec.style.display = 'block';
+            } else {
+              sec.style.display = 'none';
+            }
+          } else {
+            // Mostrar solo la sección seleccionada
+            if (id === hash) {
+              sec.style.display = 'block';
+            } else {
+              sec.style.display = 'none';
+            }
+          }
+        }
+      });
+    }
+    window.addEventListener('hashchange', mostrarSoloSeccionActiva);
+    window.addEventListener('DOMContentLoaded', mostrarSoloSeccionActiva);
+  </script>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,6 +85,139 @@
     }
   </style>
 </head>
+      <!-- SECCIÓN: SU FUNDACIÓN (solo visible en Nosotros) -->
+      <section id="fundacionSection" class="fundacion-section" style="display:none;"></section>
+  <script>
+    // Mostrar u ocultar la sección "Su fundación" solo en la pantalla de Nosotros
+    function toggleFundacionSection() {
+      const fundacionSection = document.getElementById('fundacionSection');
+      if (!fundacionSection) return;
+      if (window.location.hash === '#nosotrosSection') {
+        fundacionSection.style.display = 'flex';
+        fundacionSection.innerHTML = `
+          <div class="fundacion-container">
+            <div class="fundacion-img-col">
+              <img src="assets/images/fotos/fundacion.jpg" alt="Restauración ADS" class="fundacion-img">
+            </div>
+            <div class="fundacion-text-col">
+              <h2>Su fundación</h2>
+              <p>
+                Fue registrada legalmente en julio del 2015 pero su fundador ya tenía experiencia en restauración trabajando como asistente del Dr. en BB AA restaurador Fernando de Tovar, con quien participa en diferentes proyectos de restauración de Patrimonio Cultural y colecciones de arte como el Panteón Nacional, Palacio de Miraflores y las Iglesias de San Francisco y Dulce Nombre de Jesús en Petare, proyecto a cargo del Arq. Luis Guillermo Marcano, ganador del XI Bienal Nacional de Arquitectura en 2014, mención: Restauración.<br><br>
+                Ya bajo la firma de ADS Restauraciones se comienzan restauraciones de colecciones de arte moderno y contemporáneo en Colombia para galerías como La Cometa en Bogotá, LGM Galería y Jacob Karpio Galería.<br><br>
+                En Venezuela comienza a desarrollar monumentos y restauraciones para diferentes instituciones y consulados, siendo los más significativos la Embajada de Argentina, la Embajada de Polonia, el Consulado del Reino de España y el Consulado del Reino de Tailandia.<br><br>
+                ADS actualmente trabaja en alianza con la Galería Freites, siendo esta la galería más grande e importante de Venezuela.<br><br>
+                En 2025 tiene previsto restaurar colecciones en Italia y Alemania en el Kallman Museum a quienes les restauró una de sus obras principales, una pintura al natural de Armando Reverón realizada por Hans Jürgen Kallman, durante su estadía en Venezuela en 1949.
+              </p>
+            </div>
+          </div>
+        `;
+      } else {
+        fundacionSection.style.display = 'none';
+        fundacionSection.innerHTML = '';
+      }
+    }
+    window.addEventListener('hashchange', toggleFundacionSection);
+    window.addEventListener('DOMContentLoaded', toggleFundacionSection);
+  </script>
+  <style>
+    .fundacion-section {
+      width: 100%;
+      background: #4a3e1a;
+      padding: 60px 0 40px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .fundacion-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      max-width: 1200px;
+      width: 100%;
+      gap: 48px;
+      box-sizing: border-box;
+      padding: 0 24px;
+    }
+    .fundacion-img-col {
+      flex: 1.1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .fundacion-img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      background: #fff;
+      margin: 0 auto;
+      display: block;
+    }
+    .fundacion-text-col {
+      flex: 1.3;
+      color: #f6eac2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      padding: 0 0 0 10px;
+    }
+    .fundacion-text-col h2 {
+      color: #ffe37a;
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .fundacion-text-col p {
+      color: #f6eac2;
+      font-size: 1.08rem;
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .fundacion-container {
+        flex-direction: column;
+        gap: 28px;
+        padding: 0 10px;
+      }
+      .fundacion-img-col, .fundacion-text-col {
+        width: 100%;
+        max-width: 100vw;
+        padding: 0;
+      }
+      .fundacion-img {
+        max-width: 95vw;
+        margin-bottom: 10px;
+      }
+      .fundacion-text-col h2 {
+        font-size: 1.4rem;
+      }
+      .fundacion-text-col p {
+        font-size: 0.98rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .fundacion-section {
+        padding: 32px 0 24px 0;
+      }
+      .fundacion-container {
+        gap: 16px;
+        padding: 0 2vw;
+      }
+      .fundacion-img {
+        max-width: 99vw;
+        border-radius: 10px;
+      }
+      .fundacion-text-col h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+      }
+      .fundacion-text-col p {
+        font-size: 0.89rem;
+      }
+    }
+  </style>
+</head>
 
 <body>
   <!-- NAVBAR -->
@@ -47,8 +232,24 @@
       <span class="line"></span>
     </button>
     <nav class="navbar-menu" id="navbarMenu">
-  <a href="#heroSection" class="active"><img src="assets/images/icons/icon_home.svg" alt="Inicio"></a>
-  <a href="#nosotrosSection"><img src="assets/images/icons/icon_user-trust.svg" alt="Nosotros"></a>
+  <a href="#heroSection" class="active" id="homeLink"><img src="assets/images/icons/icon_home.svg" alt="Inicio"></a>
+  <script>
+    // --- Scroll al top al pulsar Home ---
+    document.addEventListener('DOMContentLoaded', function() {
+      const homeLink = document.getElementById('homeLink');
+      if (homeLink) {
+        homeLink.addEventListener('click', function(e) {
+          // Si ya estamos en el top o en #heroSection, forzar scroll al top
+          if (window.location.hash === '#heroSection' || window.scrollY > 0) {
+            e.preventDefault();
+            window.location.hash = '#heroSection';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        });
+      }
+    });
+  </script>
+  <a href="#nosotrosSection" id="nosotrosLink"><img src="assets/images/icons/icon_user-trust.svg" alt="Nosotros"></a>
   <a href="#formacionSection"><img src="assets/images/icons/icon_document.svg" alt="Formación"></a>
   <a href="#serviciosSection"><img src="assets/images/icons/icon_palette.svg" alt="Servicios"></a>
   <a href="#contactoSection"><img src="assets/images/icons/icon_message.svg" alt="Contacto"></a>
@@ -60,7 +261,7 @@
   </nav>
 
   <!-- HERO VIDEO -->
-  <section class="hero-section">
+  <section id="heroSection" class="hero-section">
     <video class="hero-video-bg" autoplay muted loop playsinline>
       <source src="./assets/images/videos/restauro (online-video-cutter.com).mp4" type="video/mp4">
       Tu navegador no soporta el video.
@@ -76,7 +277,7 @@
   </section>
 
   <!-- SECCIÓN: APRENDE A RECUPERAR -->
-  <section class="main-section">
+  <section id="mainSection" class="main-section">
     <h2>Aprende a recuperar la inversión monetaria de decenas de galerías y colecciones en Latinoamérica</h2>
     <p class="main-subtitle">Te presentamos un MÉTODO PROBADO para que aproveches la oportunidad de ser una pieza
       fundamental del arte</p>
@@ -97,7 +298,7 @@
   </section>
 
   <!-- SECCIÓN: MEZCLA ARTE Y CIENCIA -->
-  <section class="mix-section">
+  <section id="mixSection" class="mix-section">
     <div class="mix-text">
       <h3>Descubre la mezcla perfecta entre el arte y la ciencia</h3>
       <p>
@@ -112,7 +313,7 @@
   </section>
 
   <!-- SECCIÓN: TESTIMONIO -->
-  <section class="testimonial-section">
+  <section id="testimonialSection" class="testimonial-section">
     <blockquote>
       “Te enseñaré los pasos exactos y las estrategias, como también las herramientas y tácticas
       que he aprendido en el ejercicio de mi carrera por más de 10 años y que sustentan mi
@@ -122,7 +323,7 @@
   </section>
 
   <!-- SECCIÓN: BENEFICIOS Y CUPOS -->
-  <section class="beneficios-section">
+  <section id="beneficiosSection" class="beneficios-section">
     <h2>Beneficios del programa</h2>
     <div class="beneficios-list">
       <div class="beneficio">
@@ -160,7 +361,7 @@
   </section>
 
   <!-- SECCIÓN: INFO CARDS -->
-  <section class="info-cards-section">
+  <section id="infoCardsSection" class="info-cards-section">
     <div class="info-card">
       <h4>La duración del programa de estudios</h4>
       <p>Es de cinco (5) módulos, cada uno de cuatro (4) semanas. Las clases serán impartidas
@@ -180,15 +381,14 @@
   </section>
 
 
-  <!-- SECCIÓN: PROGRAMA RESTAURO -->
-  <section class="programa-restauro-section">
-    <img src="assets/images/logos/Programa Restauro - Logo Gold 2025.png" alt="Programa RESTAURO"
-      class="programa-logo">
-    <h2>TODO PUEDE SER RESTAURADO</h2>
-  </section>
+  <!-- SECCIÓN: PROGRAMA RESTAURO (centrado sobre módulos) -->
+  <div id="programaRestauroHeader" class="programa-restauro-header">
+    <img src="assets/images/logos/Programa Restauro - Logo Gold 2025.png" alt="Programa RESTAURO" class="programa-logo">
+    <div class="programa-restauro-title">TODO PUEDE SER RESTAURADO</div>
+  </div>
 
   <!-- SECCIÓN: MÓDULOS -->
-  <section id="modulos-section" class="modulos-section">
+  <section id="modulosSection" class="modulos-section">
     <div class="modulos-tabs">
       <div class="modulos-tabs-btns">
         <button class="active" onclick="mostrarModulo(0, this)">Módulo 1</button>
@@ -410,142 +610,455 @@
 
   <!-- SECCIÓN: NOSOTROS -->
   <section id="nosotrosSection" class="nosotros-section">
-    <!-- Acerca de nosotros -->
-    <div class="nosotros-bg-central">
-      <div class="nosotros-col nosotros-col-logo" style="position: relative; z-index: 2;">
-        <img src="assets/images/Banners/David-Michelangelo-backgroundg-min.png" alt="ADS Restauraciones"
-          class="nosotros-logo-grande" style="position: relative; z-index: 2;">
-        <div class="nosotros-info" style="position: relative; z-index: 2; color: #fff;">
-          <h2>Acerca de nosotros</h2>
+    <div class="nosotros-bg-central nosotros-bg-responsive">
+      <div class="nosotros-layout">
+        <!-- Columna Izquierda: Logo y Acerca de nosotros -->
+        <div class="nosotros-col-logo">
+          <img src="assets/images/logos/ads_logo_gold.svg" alt="ADS Logo" class="nosotros-logo-img">
+          <div class="nosotros-info">
+            <h2>Acerca de nosotros</h2>
+            <p>
+              En ADS Restauraciones nos dedicamos a la preservación y recuperación de obras de arte con un enfoque profesional, ético y profundamente comprometido con el valor histórico y cultural de cada pieza.<br><br>
+              Ofrecemos servicios de restauración, conservación preventiva, tasación, formación especializada y asesorías para colecciones privadas e institucionales.<br><br>
+              Contamos con un equipo multidisciplinario que combina técnicas tradicionales con los más recientes avances en conservación, garantizando intervenciones respetuosas.
+            </p>
+          </div>
+        </div>
+        <!-- Centro: Estatua -->
+        <div class="nosotros-col-estatua">
+          <img src="assets/images/Banners/David-by-Michelangelo-min.png" alt="Estatua David" class="nosotros-estatua-img">
+        </div>
+        <!-- Columna Derecha: Douglas Sosa -->
+        <div class="nosotros-col-director">
+          <h2>Douglas Sosa</h2>
+          <h3>Nuestro Director</h3>
           <p>
-            En ADS Restauraciones nos dedicamos a la preservación y recuperación de
-            obras de arte con un enfoque profesional, ético y comprometido con el
-            valor histórico y cultural de cada pieza.<br><br>
-            Ofrecemos servicios de restauración, conservación preventiva, tasación,
-            formación especializada y asesorías para colecciones privadas e
-            institucionales.<br><br>
-            Contamos con un equipo multidisciplinario que combina técnicas
-            tradicionales con los más recientes avances en conservación,
-            garantizando intervenciones respetuosas.
+            Douglas Sosa es restaurador especialista en obras de arte con más de una década de experiencia en intervenciones sobre piezas de alto valor histórico y simbólico.<br><br>
+            Es Licenciado en Artes del Instituto de Estudios Superiores de Artes Plásticas Armando Reverón, y ha realizado estudios de maestría en Conservación y Restauración de Monumentos en la Universidad Central de Venezuela.<br><br>
+            Complementó su formación con un Diplomado en Economía Cultural y una Maestría Internacional en Tasación de Obras de Arte y Experiencia en Falsificaciones en la Escuela Europea de Versalles (España).<br><br>
+            Su liderazgo garantiza la rigurosidad técnica, el respeto patrimonial y la sensibilidad artística en cada proyecto.
           </p>
         </div>
       </div>
-      <div class="nosotros-col nosotros-col-estatua" style="position: relative; z-index: 1;">
-        <img src="assets/images/Banners/David-by-Michelangelo-min.png" alt="Estatua David" class="nosotros-estatua-central" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+      <!-- Frase inferior -->
+      <div class="nosotros-frase">
+        <span>“Aún cuando hay daños irreversibles, todo puede ser restaurado”.<br><span>Douglas Sosa.</span></span>
       </div>
-      <div class="nosotros-col nosotros-col-director" style="position: relative; z-index: 2; color: #fff;">
-        <h2>Douglas Sosa</h2>
-        <h3>Nuestro Director</h3>
-        <p>
-          Douglas Sosa es restaurador especialista en obras de arte con más de una década
-          de experiencia en intervenciones sobre piezas de alto valor histórico y simbólico.<br><br>
-          Es Licenciado en Artes del Instituto de Estudios Superiores de Artes Plásticas
-          Armando Reverón, y ha realizado estudios de maestría en Conservación y
-          Restauración de Monumentos en la Universidad Central de Venezuela.<br><br>
-          Complementó su formación con un Diplomado en Economía Cultural y una Maestría
-          Internacional en Tasación de Obras de Arte y Experiencia en Falsificaciones
-          en la Escuela Europea de Versalles (España).<br><br>
-          Su liderazgo garantiza la rigurosidad técnica, el respeto patrimonial y la
-          sensibilidad artística en cada proyecto.
-        </p>
-      </div>
+  <style>
+    /* Ajustes para separar la frase inferior y resaltar la estatua */
+    .nosotros-bg-central.nosotros-bg-responsive {
+      /* ...existing code... */
+      min-height: 700px;
+      padding-bottom: 0;
+    }
+    .nosotros-layout {
+      /* ...existing code... */
+      padding-bottom: 80px;
+    }
+    .nosotros-frase {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 3;
+      bottom: 30px;
+      padding-bottom: 10px;
+      padding-top: 40px;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(30,24,10,0.12) 60%, rgba(30,24,10,0.22) 100%);
+      box-sizing: border-box;
+    }
+    .nosotros-frase span {
+      font-size: 1.25rem;
+      color: #e6d8b2;
+      font-style: italic;
+      font-weight: 500;
+    }
+    .nosotros-frase span span {
+      font-size: 1.08rem;
+      font-style: normal;
+      display: block;
+    }
+    .nosotros-col-logo, .nosotros-col-director {
+      max-width: 270px;
+    }
+    .nosotros-info h2, .nosotros-col-director h2 {
+      font-size: 1.25rem;
+    }
+    .nosotros-info p, .nosotros-col-director p {
+      font-size: 0.98rem;
+    }
+    .nosotros-col-director h3 {
+      font-size: 1.05rem;
+    }
+    .nosotros-estatua-img {
+      max-height: 900px;
+      min-height: 320px;
+      width: auto;
+      max-width: 100%;
+      display: block;
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.25));
+      margin: 0 10px;
+      transition: max-height 0.3s;
+    }
+    @media (max-width: 1100px) {
+      .nosotros-estatua-img {
+        max-height: 420px;
+        min-height: 180px;
+      }
+      .nosotros-layout {
+        padding-bottom: 60px;
+      }
+    }
+    @media (max-width: 900px) {
+      .nosotros-estatua-img {
+        max-height: 270px;
+        min-height: 120px;
+      }
+      .nosotros-layout {
+        padding-bottom: 40px;
+      }
+    }
+    @media (max-width: 700px) {
+      .nosotros-frase {
+        padding-top: 20px;
+        bottom: 10px;
+      }
+      .nosotros-estatua-img {
+        max-height: 160px;
+        min-height: 80px;
+      }
+      .nosotros-info h2, .nosotros-col-director h2 {
+        font-size: 1.05rem;
+      }
+      .nosotros-info p, .nosotros-col-director p {
+        font-size: 0.89rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .nosotros-frase {
+        padding-top: 10px;
+        bottom: 0;
+      }
+      .nosotros-estatua-img {
+        max-height: 90px;
+        min-height: 50px;
+      }
+    }
+  </style>
     </div>
+  <style>
+    /* --- NOSOTROS RESPONSIVO --- */
+    .nosotros-bg-central.nosotros-bg-responsive {
+      background: url('assets/images/Banners/David-Michelangelo-backgroundg-min.png') center/cover no-repeat;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 60px 0 100px 0;
+    }
+    .nosotros-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 40px;
+      z-index: 2;
+      position: relative;
+    }
+    .nosotros-col-logo, .nosotros-col-director {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      max-width: 340px;
+      color: #e6d8b2;
+      text-align: right;
+    }
+    .nosotros-col-director {
+      align-items: flex-start;
+      text-align: left;
+      color: #e6d8b2;
+    }
+    .nosotros-logo-img {
+      width: 180px;
+      margin-bottom: 30px;
+      max-width: 100%;
+    }
+    .nosotros-info h2, .nosotros-col-director h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #e6d8b2;
+    }
+    .nosotros-info p, .nosotros-col-director p {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #e6d8b2;
+    }
+    .nosotros-col-director h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #e6d8b2;
+    }
+    .nosotros-col-estatua {
+      flex: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 220px;
+      z-index: 2;
+    }
+    .nosotros-estatua-img {
+      max-height: 520px;
+      width: auto;
+      max-width: 100%;
+      display: block;
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.25));
+    }
+    .nosotros-frase {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 3;
+    }
+    .nosotros-frase span {
+      font-size: 1.1rem;
+      color: #e6d8b2;
+      font-style: italic;
+      font-weight: 500;
+    }
+    .nosotros-frase span span {
+      font-size: 1rem;
+      font-style: normal;
+      display: block;
+    }
+    /* --- RESPONSIVE --- */
+    @media (max-width: 1100px) {
+      .nosotros-layout {
+        gap: 20px;
+        max-width: 98vw;
+      }
+      .nosotros-col-logo, .nosotros-col-director {
+        max-width: 260px;
+      }
+      .nosotros-estatua-img {
+        max-height: 350px;
+      }
+    }
+    @media (max-width: 900px) {
+      .nosotros-bg-central.nosotros-bg-responsive {
+        padding: 40px 0 80px 0;
+        min-height: 520px;
+      }
+      .nosotros-layout {
+        gap: 10px;
+      }
+      .nosotros-col-logo, .nosotros-col-director {
+        max-width: 180px;
+      }
+      .nosotros-estatua-img {
+        max-height: 220px;
+      }
+      .nosotros-info h2, .nosotros-col-director h2 {
+        font-size: 1.3rem;
+      }
+      .nosotros-info p, .nosotros-col-director p {
+        font-size: 0.95rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .nosotros-bg-central.nosotros-bg-responsive {
+        padding: 20px 0 60px 0;
+        min-height: 420px;
+      }
+      .nosotros-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+      .nosotros-col-logo, .nosotros-col-director {
+        max-width: 100vw;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .nosotros-col-director {
+        margin-bottom: 0;
+      }
+      .nosotros-info h2, .nosotros-col-director h2 {
+        font-size: 1.1rem;
+      }
+      .nosotros-info p, .nosotros-col-director p {
+        font-size: 0.92rem;
+      }
+      .nosotros-estatua-img {
+        max-height: 180px;
+        margin: 0 auto 18px auto;
+      }
+    }
+    @media (max-width: 480px) {
+      .nosotros-bg-central.nosotros-bg-responsive {
+        padding: 10px 0 40px 0;
+        min-height: 320px;
+      }
+      .nosotros-frase {
+        bottom: 10px;
+      }
+      .nosotros-info h2, .nosotros-col-director h2 {
+        font-size: 1rem;
+      }
+      .nosotros-info p, .nosotros-col-director p {
+        font-size: 0.85rem;
+      }
+      .nosotros-estatua-img {
+        max-height: 110px;
+      }
+    }
+  </style>
 
-    <!-- Cita inspiradora -->
-    <blockquote class="nosotros-cita">
-      “Aún cuando hay daños irreversibles, todo puede ser restaurado”.
-      <footer>— Douglas Sosa —</footer>
-    </blockquote>
-
-    <!-- Bloque “Su fundación” -->
-    <div class="fundacion-container">
-      <div class="fundacion-image">
-        <img src="assets/images/fotos/fundacion.jpg" alt="Mano restaurando una pintura">
-      </div>
-      <div class="fundacion-text">
-        <h2>Su fundación</h2>
-        <p>
-          Fue registrada legalmente en julio del 2015 pero su fundador ya tenía
-          experiencia en restauración trabajando como asistente del Dr. Fernando de Tovar,
-          participando en proyectos de restauración de Patrimonio Cultural y colecciones
-          de arte como el Panteón Nacional, Palacio de Miraflores y las Iglesias de San
-          Francisco y Dulce Nombre de Jesús en Petare.
-        </p>
-        <p>
-          Bajo la firma de ADS Restauraciones comenzamos intervenciones en
-          colecciones de arte moderno y contemporáneo en Colombia para galerías como
-          La Cometa en Bogotá, LGM Galería y Jacob Karpio Galería.
-        </p>
-        <p>
-          En Venezuela desarrollamos monumentos y restauraciones para instituciones
-          y consulados, entre ellos la Embajada de Argentina, la Embajada de Polonia,
-          el Consulado de España y el Consulado de Tailandia.
-        </p>
-        <p>
-          Trabajamos en alianza con la Galería Freites, la más grande e importante
-          de Venezuela. En 2025 restauraremos colecciones en Italia y Alemania
-          para el Kallman Museum, incluidas obras de Armando Reverón realizadas
-          por Hans Jürgen Kallman.
-        </p>
-      </div>
-    </div>
-
-    <!-- Bloque “Nuestro equipo” -->
+    <!-- Bloque “Nuestro equipo” estilo web oficial, responsivo -->
     <div class="equipo-container">
-      <h2>Nuestro Equipo</h2>
-      <div class="team-container">
+      <h2 class="equipo-title">Nuestro Equipo</h2>
+      <div class="team-cards-official">
         <!-- Miembro 1 -->
-        <div class="team-member">
-          <div class="member-image">
-            <img src="assets/images/team/douglas.jpg" alt="Douglas Sosa">
-          </div>
-          <div class="member-info">
-            <h3>Douglas Sosa</h3>
-            <p class="role">CEO Director</p>
-          </div>
+        <div class="team-card-official">
+          <img src="assets/images/team/douglas.jpg" alt="Douglas Sosa" class="team-img-official">
+          <div class="team-name-official">Douglas Sosa</div>
+          <div class="team-role-official">CEO Director</div>
         </div>
         <!-- Miembro 2 -->
-        <div class="team-member">
-          <div class="member-image">
-            <img src="assets/images/team/andrea.jpg" alt="Nombre 2">
-          </div>
-          <div class="member-info">
-            <h3>Andrea Britto</h3>
-            <p class="role">Asistente General</p>
-          </div>
+        <div class="team-card-official">
+          <img src="assets/images/team/andrea.jpg" alt="Andrea Britto" class="team-img-official">
+          <div class="team-name-official">Andrea Britto</div>
+          <div class="team-role-official">Asistente General</div>
         </div>
         <!-- Miembro 3 -->
-        <div class="team-member">
-          <div class="member-image">
-            <img src="assets/images/team/david.jpg" alt="Nombre 3">
-          </div>
-          <div class="member-info">
-            <h3>David Sosa</h3>
-            <p class="role">Coordinador</p>
-          </div>
+        <div class="team-card-official">
+          <img src="assets/images/team/david.jpg" alt="David Sosa" class="team-img-official">
+          <div class="team-name-official">David Sosa</div>
+          <div class="team-role-official">Coordinador</div>
         </div>
         <!-- Miembro 4 -->
-        <div class="team-member">
-          <div class="member-image">
-            <img src="assets/images/team/Ingeniero.jpeg" alt="Nombre 4">
-          </div>
-          <div class="member-info">
-            <h3>Jonathan Triana</h3>
-            <p class="role">Ingeniero estructural</p>
-          </div>
+        <div class="team-card-official">
+          <img src="assets/images/team/Ingeniero.jpeg" alt="Nombre 4" class="team-img-official">
+          <div class="team-name-official">Jonathan Triana</div>
+          <div class="team-role-official">Ingeniero Estructural</div>
         </div>
         <!-- Miembro 5 -->
-        <div class="team-member">
-          <div class="member-image">
-            <img src="assets/images/team/luis.jpg" alt="Nombre 5">
-          </div>
-          <div class="member-info">
-            <h3>Luis Lugo</h3>
-            <p class="role">Diseñador</p>
-          </div>
+        <div class="team-card-official">
+          <img src="assets/images/team/luis.jpg" alt="Luis Aikon" class="team-img-official">
+          <div class="team-name-official">Luis Lugo</div>
+          <div class="team-role-official">Diseñador</div>
         </div>
       </div>
     </div>
+    <style>
+      .equipo-container {
+        background: #fff;
+        border-radius: 0 0 24px 24px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 48px 16px 40px 16px;
+        margin: 0 auto 0 auto;
+        max-width: 1400px;
+        width: 100%;
+        text-align: center;
+      }
+      .equipo-title {
+        color: #3d2e0c;
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 36px;
+        letter-spacing: -1px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .team-cards-official {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 32px;
+      }
+      .team-card-official {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        padding: 24px 18px 18px 18px;
+        max-width: 220px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.2s;
+      }
+      .team-card-official:hover {
+        box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+      }
+      .team-img-official {
+        width: 140px;
+        height: 180px;
+        border-radius: 16px;
+        object-fit: cover;
+        margin-bottom: 18px;
+        background: #f3f1eb;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        object-position: top center;
+      }
+      .team-name-official {
+        font-size: 1.18rem;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 2px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .team-role-official {
+        font-size: 1.02rem;
+        color: #b1a47a;
+        font-family: 'Montserrat', sans-serif;
+        font-style: italic;
+        margin-bottom: 2px;
+      }
+      @media (max-width: 1100px) {
+        .team-cards-official {
+          gap: 18px;
+        }
+        .team-card-official {
+          max-width: 180px;
+          padding: 18px 8px 14px 8px;
+        }
+        .team-img-official {
+          width: 100px;
+          height: 130px;
+        }
+      }
+      @media (max-width: 700px) {
+        .equipo-title {
+          font-size: 1.5rem;
+        }
+        .team-cards-official {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .team-card-official {
+          max-width: 98vw;
+        }
+        .team-img-official {
+          width: 80px;
+          height: 110px;
+        }
+        .team-name-official {
+          font-size: 1rem;
+        }
+        .team-role-official {
+          font-size: 0.92rem;
+        }
+      }
+    </style>
     <!-- Bloque “¿Por qué elegir a ADS?” como imagen completa -->
     <div class="elegir-ads">
       <img src="assets/images/Banners/fondonosotros.png" alt="¿Por qué elegir a ADS?">
@@ -558,206 +1071,724 @@
     <div class="formacion-header">
       <h2>Formación artística especializada para transformar tu talento en oficio</h2>
       <p class="formacion-subtitle">
-        Accede a talleres diseñados para ampliar tus conocimientos en pintura, escultura y restauración de obras.
-        Aprende con expertos, desarrolla habilidades prácticas y fortalece tu camino profesional en el arte.
+        Accede a talleres diseñados para ampliar tus conocimientos en pintura, escultura y restauración de obras. Aprende con expertos, desarrolla habilidades prácticas y fortalece tu camino profesional en el arte.
       </p>
     </div>
-
-    <!-- Banner programa restauro -->
-    <div class="programa-banner">
-      <img src="assets/images/Banners/Bannerprogramarestauro.jpg" alt="Programa restauro">
-      <div class="programa-overlay">
-        <h3>Programa restauro</h3>
-        <p>
-          Domina la restauración de pinturas, esculturas y obras gráficas. Aprende conservación,
-          tasación e identificación de falsificaciones con enfoque teórico y práctico. ¡Postúlate hoy!
-        </p>
+    <div class="formacion-cards">
+      <div class="formacion-card">
+        <div class="formacion-card-img" style="background-image:url('assets/images/Banners/Bannerprogramarestauro.jpg');"></div>
+        <div class="formacion-card-content">
+          <h3>Programa restauro</h3>
+          <p>Domina la restauración de pinturas, esculturas y obras gráficas. Aprende conservación, tasación e identificación de falsificaciones con enfoque teórico y práctico. ¡Postúlate hoy!</p>
+        </div>
+      </div>
+      <div class="formacion-card">
+        <div class="formacion-card-img" style="background-image:url('assets/images/Banners/Bannertallerpintura.jpg');"></div>
+        <div class="formacion-card-content">
+          <h3>Taller de pintura</h3>
+          <p>Aprende técnicas de pintura y dibujo, preparación de color y soportes. Cupos limitados. ¡Reserva tu lugar hoy!</p>
+        </div>
+      </div>
+      <div class="formacion-card">
+        <div class="formacion-card-img" style="background-image:url('assets/images/Banners/Bannertallerescultura.jpg');"></div>
+        <div class="formacion-card-content">
+          <h3>Taller de escultura</h3>
+          <p>Explora el modelado, moldes, vaciado y concepción de espacios con distintos materiales. ¡Inscríbete y da forma a tus ideas!</p>
+        </div>
       </div>
     </div>
-    <!-- Taller de pintura -->
-    <div class="taller-banner">
-      <img src="assets/images/Banners/Bannertallerpintura.jpg" alt="Taller de pintura">
-      <div class="taller-overlay">
-        <h3>Taller de pintura</h3>
-        <p>
-          Aprende técnicas de pintura y dibujo, preparación de color y soportes.
-          Cupos limitados. ¡Reserva tu lugar hoy!
-        </p>
-      </div>
-    </div>
-
-    <!-- Taller de escultura -->
-    <div class="taller-banner">
-      <img src="assets/images/Banners/Bannertallerescultura.jpg" alt="Taller de escultura">
-      <div class="taller-overlay">
-        <h3>Taller de escultura</h3>
-        <p>
-          Explora el modelado, moldes, vaciado y concepción de espacios
-          con distintos materiales. ¡Inscríbete y da forma a tus ideas!
-        </p>
-      </div>
-    </div>
-    <!-- CTA WhatsApp -->
     <div class="cta-whatsapp">
       <h2>¿Quieres llevar tu práctica artística al siguiente nivel?</h2>
       <p class="cta-sub">Elige el taller que más te inspire y abre un chat en WhatsApp para reservar tu lugar.</p>
-      <div class="whatsapp-form">
-        <input type="tel" id="whatsappInput" placeholder="Solicita" />
-        <button id="whatsappBtn">Enviar</button>
-      </div>
+      <form class="whatsapp-form" id="whatsappForm" onsubmit="return false;">
+        <input type="text" id="whatsappInput" placeholder="Escribe tu mensaje o taller de interés..." maxlength="200" />
+        <button id="whatsappBtn" type="submit">Enviar</button>
+      </form>
     </div>
-
-    <!-- Aquí podrías añadir más subsecciones (módulos, fechas, etc.) -->
+    <style>
+      .formacion-cards {
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+        justify-content: center;
+        align-items: stretch;
+        margin: 40px auto 0 auto;
+        max-width: 1200px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .formacion-card {
+        background: rgba(90, 70, 30, 0.92);
+        border-radius: 22px;
+        box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+        overflow: hidden;
+        max-width: 420px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 24px;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .formacion-card:hover {
+        box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+        transform: translateY(-4px) scale(1.02);
+      }
+      .formacion-card-img {
+        width: 100%;
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(0.72);
+      }
+      .formacion-card-content {
+        padding: 32px 24px 28px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+      .formacion-card-content h3 {
+        color: #fff7d0;
+        font-size: 2.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .formacion-card-content p {
+        color: #fff7d0;
+        font-size: 1.08rem;
+        text-align: center;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .whatsapp-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin: 32px auto 0 auto;
+        max-width: 480px;
+        width: 100%;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        padding: 10px 16px;
+      }
+      .whatsapp-form input[type="text"] {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.08rem;
+        background: #f7f3e7;
+        color: #5a461e;
+        outline: none;
+        font-family: 'Montserrat', sans-serif;
+        transition: box-shadow 0.2s;
+        box-shadow: 0 1px 4px rgba(90,70,30,0.06);
+      }
+      .whatsapp-form input[type="text"]:focus {
+        box-shadow: 0 2px 8px rgba(90,70,30,0.13);
+      }
+      .whatsapp-form button {
+        padding: 12px 22px;
+        background: #bfa14a;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.08rem;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 1px 4px rgba(90,70,30,0.08);
+      }
+      .whatsapp-form button:hover {
+        background: #a88d3a;
+      }
+      @media (max-width: 1100px) {
+        .formacion-cards {
+          gap: 18px;
+        }
+        .formacion-card {
+          max-width: 340px;
+        }
+        .formacion-card-img {
+          height: 120px;
+        }
+      }
+      @media (max-width: 900px) {
+        .formacion-cards {
+          flex-direction: column;
+          align-items: center;
+          gap: 18px;
+        }
+        .formacion-card {
+          max-width: 98vw;
+        }
+        .formacion-card-img {
+          height: 110px;
+        }
+        .formacion-card-content h3 {
+          font-size: 1.3rem;
+        }
+        .formacion-card-content p {
+          font-size: 0.98rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .formacion-cards {
+          gap: 10px;
+        }
+        .formacion-card {
+          max-width: 99vw;
+        }
+        .formacion-card-img {
+          height: 80px;
+        }
+        .formacion-card-content {
+          padding: 18px 8px 14px 8px;
+        }
+        .formacion-card-content h3 {
+          font-size: 1.1rem;
+          margin-bottom: 10px;
+        }
+        .formacion-card-content p {
+          font-size: 0.89rem;
+        }
+        .whatsapp-form {
+          padding: 8px 4px;
+        }
+        .whatsapp-form input[type="text"] {
+          font-size: 0.98rem;
+          padding: 10px 8px;
+        }
+        .whatsapp-form button {
+          font-size: 0.98rem;
+          padding: 10px 12px;
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const whatsappForm = document.getElementById('whatsappForm');
+        const whatsappInput = document.getElementById('whatsappInput');
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        whatsappForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          let mensaje = whatsappInput.value.trim();
+          let url = 'https://wa.me/message/D4XAUNTSHSDMN1';
+          if (mensaje.length > 0) {
+            url += `?text=${encodeURIComponent(mensaje)}`;
+          }
+          window.open(url, '_blank');
+        });
+      });
+    </script>
   </section>
 
   <!-- SECCIÓN: SERVICIOS -->
   <section id="serviciosSection" class="servicios-section">
-    <!-- Header -->
     <div class="servicios-header">
       <h2>Servicios especializados para preservar, valorar y proteger el arte</h2>
       <p class="servicios-sub">
-        Ofrecemos un portafolio de servicios profesionales orientados a la restauración,
-        valoración y certificación de obras de arte, combinando conocimiento técnico,
-        enfoque ético y sensibilidad estética.
+        Ofrecemos un portafolio de servicios profesionales orientados a la restauración, valoración y certificación de obras de arte, combinando conocimiento técnico, enfoque ético y sensibilidad estética.
       </p>
     </div>
-
-    <!-- Banner: Tasación -->
-    <div class="servicio-banner">
-      <img src="assets/images/Banners/Banner_tasacion_1840x513.jpg" alt="Tasación">
-      <div class="servicio-overlay">
-        <h3>Tasación</h3>
-        <p>
-          Valoramos piezas con precisión técnica y criterio profesional,
-          generando informes confiables para coleccionistas, aseguradoras
-          y entidades culturales.
-        </p>
+    <div class="servicios-cards">
+      <div class="servicio-card">
+        <div class="servicio-card-img" style="background-image:url('assets/images/Banners/Banner_tasacion_1840x513.jpg');"></div>
+        <div class="servicio-card-content">
+          <h3>Tasación</h3>
+          <p>Valoramos piezas con precisión técnica y criterio profesional, generando informes confiables para coleccionistas, aseguradoras y entidades culturales.</p>
+        </div>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-img" style="background-image:url('assets/images/Banners/Banner_restauracion_1840x513.jpg');"></div>
+        <div class="servicio-card-content">
+          <h3>Restauración</h3>
+          <p>Recuperamos la integridad estética e histórica de cada obra con intervenciones precisas, respetuosas y técnicas especializadas de conservación.</p>
+        </div>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-img" style="background-image:url('assets/images/Banners/Banner_certificacion_1840x513.jpg');"></div>
+        <div class="servicio-card-content">
+          <h3>Certificación de Autenticidad</h3>
+          <p>Estimamos dictámenes técnicos especializados que garantizan la autenticidad de obras de arte, respaldados por análisis formales, materiales y de procedencia.</p>
+        </div>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-img" style="background-image:url('assets/images/Banners/Banner_compra_venta_1840x513.jpg');"></div>
+        <div class="servicio-card-content">
+          <h3>Compra-Venta</h3>
+          <p>Asesoramos en la adquisición y comercialización de piezas artísticas, garantizando transacciones seguras, justas y alineadas con el valor real del mercado.</p>
+        </div>
       </div>
     </div>
-
-    <!-- Banner: Conservación preventiva -->
-    <div class="servicio-banner">
-      <img src="assets/images/Banners/Banner_restauracion_1840x513.jpg" alt="Conservación preventiva">
-      <div class="servicio-overlay">
-        <h3>Restauración</h3>
-        <p>
-          Recuperamos la integidad estética e historica de cada obra con intervención precisas, rspetuosas y técnicas
-          especializadas de conservación.
-        </p>
-      </div>
-    </div>
-
-    <!-- Banner: Restauración -->
-    <div class="servicio-banner">
-      <img src="assets/images/Banners/Banner_certificacion_1840x513.jpg" alt="Restauración">
-      <div class="servicio-overlay">
-        <h3>Certificación de Autenticidad</h3>
-        <p>
-          Estimamos dictámenes técnicos especializados que garantizan la autenticidad de obras de arte, respaldados por
-          análisis formales, materiales y de procedencia.
-        </p>
-      </div>
-    </div>
-    <!-- Banner: Compra-Venta -->
-    <div class="servicio-banner">
-      <img src="assets/images/Banners/Banner_compra_venta_1840x513.jpg" alt="Compra-Venta">
-      <div class="servicio-overlay">
-        <h3>Compra-Venta</h3>
-        <p>
-          Asesoramos en la adquisición y comercialización de piezas artísticas,
-          garantizando transacciones seguras, justas y alineadas con el valor real
-          del mercado.
-        </p>
-      </div>
-    </div>
-    <!-- CTA WhatsApp en SERVICIOS -->
     <div class="cta-servicios">
       <h2>Conecta con el arte desde adentro</h2>
       <p class="cta-servicios-sub">
-        Solicita nuestros servicios y recibe atención personalizada para la restauración,
-        conservación o valoración de tus obras. Cuéntanos qué necesitas y te contactaremos
-        por WhatsApp con una propuesta a medida.
+        Solicita nuestros servicios y recibe atención personalizada para la restauración, conservación o valoración de tus obras. Cuéntanos qué necesitas y te contactaremos por WhatsApp con una propuesta a medida.
       </p>
-      <div class="whatsapp-form-serv">
-        <input type="tel" id="whatsappInput2" placeholder="Tu número de WhatsApp" />
-        <button id="whatsappBtn2">Enviar</button>
-      </div>
-    </div>
-  </section>
-  <!-- SECCIÓN: CONTACTO -->
-<section id="contactoSection" class="contacto-section">
-  <div class="contacto-container" style="max-width:1200px;margin:0 auto;padding:2rem;">
-    <div class="contacto-texto" style="flex:1; padding-right:2rem;">
-      <h4 style="color:#6b5e36; font-weight:400; margin-bottom:.5rem;">Hablemos de tu obra</h4>
-      <h2 style="color:#6b5e36; font-size:2.5rem; margin-bottom:1rem;">
-        de tu proyecto o de<br>tu próxima gran idea…
-      </h2>
-      <p style="color:#555; line-height:1.6; margin-bottom:1rem;">
-        Ya sea que necesites restaurar una pieza invaluable, certificar su autenticidad o
-        simplemente recibir orientación experta, estamos aquí para escucharte.
-      </p>
-      <p style="color:#777; font-style:italic; margin-bottom:2rem;">
-        Escríbenos. Cada mensaje abre la puerta a una historia que vale la pena preservar.
-      </p>
-
-      <ul class="contacto-features" style="list-style:none; padding:0; margin:0;">
-        <li style="display:flex; align-items:start; margin-bottom:1.5rem;">
-          <div style="flex-shrink:0; width:50px; height:50px; background:#857132; border-radius:8px;
-                      display:flex; align-items:center; justify-content:center; margin-right:1rem;">
-            <img src="assets/images/icons/icon_user-trust.svg" alt="" style="width:24px; height:24px;">
-          </div>
-          <div>
-            <h5 style="margin:0 0 .25rem; color:#6b5e36;">Excelencia Técnica y Académica</h5>
-            <p style="margin:0; color:#555; font-size:.9rem;">
-              Contamos con profesionales altamente calificados y especializados en restauración, tasación y certificación de obras de arte.
-            </p>
-          </div>
-        </li>
-        <li style="display:flex; align-items:start; margin-bottom:1.5rem;">
-          <div style="flex-shrink:0; width:50px; height:50px; background:#857132; border-radius:8px;
-                      display:flex; align-items:center; justify-content:center; margin-right:1rem;">
-            <img src="assets/images/icons/icon_confianza_rigo_84x84.svg" alt="" style="width:24px; height:24px;">
-          </div>
-          <div>
-            <h5 style="margin:0 0 .25rem; color:#6b5e36;">Confianza y Rigor Profesional</h5>
-            <p style="margin:0; color:#555; font-size:.9rem;">
-              Aplicamos criterios éticos y metodologías internacionales para garantizar resultados impecables, transparentes y verificables.
-            </p>
-          </div>
-        </li>
-        <li style="display:flex; align-items:start;">
-          <div style="flex-shrink:0; width:50px; height:50px; background:#857132; border-radius:8px;
-                      display:flex; align-items:center; justify-content:center; margin-right:1rem;">
-            <img src="assets/images/icons/icon_atencion_personalizada_84x84.svg" alt="" style="width:24px; height:24px;">
-          </div>
-          <div>
-            <h5 style="margin:0 0 .25rem; color:#6b5e36;">Atención Personalizada y Confidencial</h5>
-            <p style="margin:0; color:#555; font-size:.9rem;">
-              Cada obra es única. Por ello ofrecemos asesoría exclusiva, ajustada a tus necesidades y con total discreción.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="contacto-formulario" style="flex:1; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-      <h3 style="margin-top:0; color:#6b5e36; text-align:center;">Contáctanos</h3>
-      <form id="contactForm">
-        <input type="email" placeholder="Ingresa tu correo" required
-               style="width:100%; padding:.75rem; margin-bottom:1rem; border:1px solid #ddd; border-radius:8px;">
-        <input type="text" placeholder="Asunto" required
-               style="width:100%; padding:.75rem; margin-bottom:1rem; border:1px solid #ddd; border-radius:8px;">
-        <textarea placeholder="Escribe tu mensaje…" rows="5" required
-               style="width:100%; padding:.75rem; margin-bottom:1.5rem; border:1px solid #ddd; border-radius:8px;"></textarea>
-        <button type="submit"
-               style="width:100%; padding:.75rem; background:#38b779; color:#fff; border:none; border-radius:8px;
-                      font-size:1rem; cursor:pointer;">
-          Enviar
-        </button>
+      <form class="whatsapp-form-serv" id="whatsappFormServ" onsubmit="return false;">
+        <input type="text" id="whatsappInput2" placeholder="¿Qué servicio necesitas?" maxlength="200" />
+        <button id="whatsappBtn2" type="submit">Enviar</button>
       </form>
     </div>
-  </div>
-</section>
+    <style>
+      .servicios-cards {
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+        justify-content: center;
+        align-items: stretch;
+        margin: 40px auto 0 auto;
+        max-width: 1400px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .servicio-card {
+        background: rgba(90, 70, 30, 0.92);
+        border-radius: 22px;
+        box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+        overflow: hidden;
+        max-width: 420px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 24px;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .servicio-card:hover {
+        box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+        transform: translateY(-4px) scale(1.02);
+      }
+      .servicio-card-img {
+        width: 100%;
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(0.72);
+      }
+      .servicio-card-content {
+        padding: 32px 24px 28px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+      .servicio-card-content h3 {
+        color: #fff7d0;
+        font-size: 2.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .servicio-card-content p {
+        color: #fff7d0;
+        font-size: 1.08rem;
+        text-align: center;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .whatsapp-form-serv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin: 32px auto 0 auto;
+        max-width: 480px;
+        width: 100%;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        padding: 10px 16px;
+      }
+      .whatsapp-form-serv input[type="text"] {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.08rem;
+        background: #f7f3e7;
+        color: #5a461e;
+        outline: none;
+        font-family: 'Montserrat', sans-serif;
+        transition: box-shadow 0.2s;
+        box-shadow: 0 1px 4px rgba(90,70,30,0.06);
+      }
+      .whatsapp-form-serv input[type="text"]:focus {
+        box-shadow: 0 2px 8px rgba(90,70,30,0.13);
+      }
+      .whatsapp-form-serv button {
+        padding: 12px 22px;
+        background: #bfa14a;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.08rem;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 1px 4px rgba(90,70,30,0.08);
+      }
+      .whatsapp-form-serv button:hover {
+        background: #a88d3a;
+      }
+      @media (max-width: 1100px) {
+        .servicios-cards {
+          gap: 18px;
+        }
+        .servicio-card {
+          max-width: 340px;
+        }
+        .servicio-card-img {
+          height: 120px;
+        }
+      }
+      @media (max-width: 900px) {
+        .servicios-cards {
+          flex-direction: column;
+          align-items: center;
+          gap: 18px;
+        }
+        .servicio-card {
+          max-width: 98vw;
+        }
+        .servicio-card-img {
+          height: 110px;
+        }
+        .servicio-card-content h3 {
+          font-size: 1.3rem;
+        }
+        .servicio-card-content p {
+          font-size: 0.98rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .servicios-cards {
+          gap: 10px;
+        }
+        .servicio-card {
+          max-width: 99vw;
+        }
+        .servicio-card-img {
+          height: 80px;
+        }
+        .servicio-card-content {
+          padding: 18px 8px 14px 8px;
+        }
+        .servicio-card-content h3 {
+          font-size: 1.1rem;
+          margin-bottom: 10px;
+        }
+        .servicio-card-content p {
+          font-size: 0.89rem;
+        }
+        .whatsapp-form-serv {
+          padding: 8px 4px;
+        }
+        .whatsapp-form-serv input[type="text"] {
+          font-size: 0.98rem;
+          padding: 10px 8px;
+        }
+        .whatsapp-form-serv button {
+          font-size: 0.98rem;
+          padding: 10px 12px;
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const whatsappFormServ = document.getElementById('whatsappFormServ');
+        const whatsappInput2 = document.getElementById('whatsappInput2');
+        const whatsappBtn2 = document.getElementById('whatsappBtn2');
+        whatsappFormServ.addEventListener('submit', function(e) {
+          e.preventDefault();
+          let mensaje = whatsappInput2.value.trim();
+          let url = 'https://wa.me/message/D4XAUNTSHSDMN1';
+          if (mensaje.length > 0) {
+            url += `?text=${encodeURIComponent(mensaje)}`;
+          }
+          window.open(url, '_blank');
+        });
+      });
+    </script>
+  </section>
+  <!-- SECCIÓN: CONTACTO -->
+  <section id="contactoSection" class="contacto-section" style="display:none;">
+
+    <div class="contacto-container">
+      <div class="contacto-texto">
+        <h2 class="contacto-titulo">Hablemos de tu obra<br>de tu proyecto o de tu próxima gran idea…</h2>
+        <p class="contacto-desc">Ya sea que necesites restaurar una pieza invaluable, certificar su autenticidad o simplemente recibir orientación experta, estamos aquí para escucharte.</p>
+        <p class="contacto-desc-italic">Escríbenos. Cada mensaje abre la puerta a una historia que vale la pena preservar.</p>
+        <ul class="contacto-features">
+          <li>
+            <div class="contacto-feature-icon"><img src="assets/images/icons/icon_user-trust.svg" alt=""></div>
+            <div>
+              <h5>Excelencia Técnica y Académica</h5>
+              <p>Contamos con profesionales altamente calificados y especializados en restauración, tasación y certificación de obras de arte.</p>
+            </div>
+          </li>
+          <li>
+            <div class="contacto-feature-icon"><img src="assets/images/icons/icon_confianza_rigo_84x84.svg" alt=""></div>
+            <div>
+              <h5>Confianza y Rigor Profesional</h5>
+              <p>Aplicamos criterios éticos y metodologías internacionales para garantizar resultados impecables, transparentes y verificables.</p>
+            </div>
+          </li>
+          <li>
+            <div class="contacto-feature-icon"><img src="assets/images/icons/icon_atencion_personalizada_84x84.svg" alt=""></div>
+            <div>
+              <h5>Atención Personalizada y Confidencial</h5>
+              <p>Cada obra es única. Por ello ofrecemos asesoría exclusiva, ajustada a tus necesidades y con total discreción.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="contacto-formulario">
+        <h3 class="contacto-form-title">Contáctanos</h3>
+        <form id="contactForm">
+          <input type="email" id="contactEmail" name="user_email" placeholder="Ingresa tu correo" required>
+          <input type="text" id="contactSubject" name="user_subject" placeholder="Asunto" required>
+          <textarea id="contactMessage" name="user_message" placeholder="Escribe tu mensaje…" rows="5" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+        <div id="contactFormMsg" style="display:none;"></div>
+      </div>
+    </div>
+    <style>
+      .contacto-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        background: #f8f5ef;
+        border-radius: 24px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      }
+      .contacto-texto {
+        flex: 1 1 340px;
+        min-width: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 12px;
+      }
+      .contacto-titulo {
+        font-size: 2.1rem;
+        font-weight: 700;
+        color: #6b5e36;
+        margin-bottom: 1.2rem;
+        line-height: 1.2;
+      }
+      .contacto-desc {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 0.7rem;
+        font-size: 1.08rem;
+      }
+      .contacto-desc-italic {
+        color: #777;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        font-size: 1.01rem;
+      }
+      .contacto-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+      }
+      .contacto-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        padding: 16px 18px;
+        max-width: 420px;
+        width: 100%;
+      }
+      .contacto-feature-icon {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        background: #bfa14a;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .contacto-feature-icon img {
+        width: 24px;
+        height: 24px;
+      }
+      .contacto-features h5 {
+        margin: 0 0 0.25rem 0;
+        color: #6b5e36;
+        font-size: 1.08rem;
+        font-weight: 700;
+      }
+      .contacto-features p {
+        margin: 0;
+        color: #555;
+        font-size: 0.97rem;
+      }
+      .contacto-formulario {
+        flex: 1 1 340px;
+        min-width: 280px;
+        background: #fff;
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .contacto-form-title {
+        margin-top: 0;
+        color: #6b5e36;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+      }
+      #contactForm {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      #contactForm input, #contactForm textarea {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 1px solid #e0d7c2;
+        border-radius: 8px;
+        font-size: 1.08rem;
+        font-family: 'Montserrat', sans-serif;
+        background: #f8f5ef;
+        color: #6b5e36;
+        outline: none;
+        transition: box-shadow 0.2s, border 0.2s;
+      }
+      #contactForm input:focus, #contactForm textarea:focus {
+        border: 1.5px solid #bfa14a;
+        box-shadow: 0 2px 8px rgba(191,161,74,0.13);
+      }
+      #contactForm button {
+        width: 100%;
+        padding: 0.85rem;
+        background: #bfa14a;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.08rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 1px 4px rgba(90,70,30,0.08);
+      }
+      #contactForm button:hover {
+        background: #a88d3a;
+      }
+      #contactFormMsg {
+        margin-top: 1rem;
+        color: #38b779;
+        font-weight: 600;
+        font-size: 1.08rem;
+        text-align: center;
+      }
+      @media (max-width: 900px) {
+        .contacto-container {
+          flex-direction: column;
+          gap: 18px;
+          padding: 1.2rem 0.5rem;
+        }
+        .contacto-texto, .contacto-formulario {
+          min-width: 0;
+          width: 100%;
+          padding: 0 2vw;
+        }
+        .contacto-titulo {
+          font-size: 1.3rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .contacto-container {
+          padding: 0.5rem 0.2rem;
+        }
+        .contacto-titulo {
+          font-size: 1.05rem;
+        }
+        .contacto-formulario {
+          padding: 1rem 0.5rem;
+        }
+        .contacto-features li {
+          padding: 10px 6px;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init('YOUR_EMAILJS_USER_ID'); // Reemplaza con tu User ID de EmailJS
+      })();
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm');
+        const msg = document.getElementById('contactFormMsg');
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          msg.style.display = 'none';
+          emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+            .then(function() {
+              msg.textContent = '¡Mensaje enviado correctamente!';
+              msg.style.display = 'block';
+              form.reset();
+            }, function(error) {
+              msg.textContent = 'Error al enviar. Intenta de nuevo.';
+              msg.style.display = 'block';
+            });
+        });
+      });
+    </script>
+  </section>
+
+  <script>
+    // Mostrar la sección de contacto solo si el hash es #contactoSection
+    function toggleContactoSection() {
+      const contactoSection = document.getElementById('contactoSection');
+      if (window.location.hash === '#contactoSection') {
+        contactoSection.style.display = 'block';
+      } else {
+        contactoSection.style.display = 'none';
+      }
+    }
+    window.addEventListener('hashchange', toggleContactoSection);
+    window.addEventListener('DOMContentLoaded', toggleContactoSection);
+  </script>
+ 
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -873,6 +1904,22 @@
 
   // 4. Al cargar la página (para el # que venga en la URL o defecto)
   window.addEventListener('DOMContentLoaded', highlightActiveLink);
+
+  // --- Scroll directo a "Su fundación" al pulsar Nosotros ---
+  document.addEventListener('DOMContentLoaded', function() {
+    const nosotrosLink = document.getElementById('nosotrosLink');
+    if (nosotrosLink) {
+      nosotrosLink.addEventListener('click', function(e) {
+        // Permite el cambio de hash y espera a que la sección "Su fundación" esté visible
+        setTimeout(function() {
+          const fundacionSection = document.getElementById('fundacionSection');
+          if (fundacionSection && fundacionSection.style.display !== 'none') {
+            fundacionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      });
+    }
+  });
 </script>
 
 </body>

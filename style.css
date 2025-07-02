@@ -330,10 +330,28 @@ img {
   color: var(--color-primary);
 }
 
+/* Subtítulo principal debajo del hero, responsivo y agradable */
 .main-subtitle {
   color: var(--color-primary);
   max-width: 600px;
   margin: 0 auto 2rem auto;
+  font-size: 1.18rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.01em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 700px) {
+  .main-subtitle {
+    font-size: 1.01rem;
+    padding: 0 0.5rem;
+    max-width: 98vw;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
 }
 
 .main-benefits {
@@ -568,10 +586,11 @@ img {
   align-items: center;
 }
 
+/* Mejoras para tabs responsivos y visuales en móvil */
 .modulos-tabs {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   gap: 0.5rem;
   border-bottom: 2px solid #ddd;
   margin-bottom: 2rem;
@@ -582,6 +601,90 @@ img {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) #e5e5e5;
+}
+
+.modulos-tabs::-webkit-scrollbar {
+  height: 6px;
+}
+.modulos-tabs::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 6px;
+}
+.modulos-tabs::-webkit-scrollbar-track {
+  background: #e5e5e5;
+  border-radius: 6px;
+}
+
+@media (max-width: 700px) {
+  .modulos-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    gap: 0.2rem;
+    background: rgba(191, 161, 58, 0.92);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    backdrop-filter: blur(2px);
+  }
+  .modulos-tabs-btns {
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 2px;
+    gap: 0;
+  }
+  .modulos-tabs-btns button {
+    flex: 1 0 auto;
+    width: 20vw;
+    min-width: 90px;
+    max-width: 120px;
+    font-size: 0.97rem;
+    padding: 0.7rem 0.2rem;
+    margin: 0;
+    border-radius: 12px 12px 0 0;
+    background: rgba(255,255,255,0.13);
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.18s, color 0.18s, transform 0.18s;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    outline: none;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+  }
+  .modulos-tabs-btns button.active {
+    background: #fff;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+    box-shadow: 0 4px 16px rgba(191,161,58,0.13);
+    transform: none;
+    z-index: 2;
+  }
+  .modulos-tabs-btns button:active:not(.active),
+  .modulos-tabs-btns button:focus-visible:not(.active) {
+    background: rgba(255,255,255,0.22);
+    color: #ffe680;
+    transform: scale(0.98);
+  }
+  .modulos-tabs-btns button:hover:not(.active) {
+    background: rgba(255,255,255,0.18);
+    color: #ffe680;
+    cursor: pointer;
+    transform: scale(1.03);
+  }
 }
 
 .modulos-tabs-btns {
@@ -602,6 +705,7 @@ img {
   color: #fff;
   border-radius: 12px 12px 0 0;
   transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 
 .modulos-tabs-btns button.active {
@@ -613,15 +717,16 @@ img {
 .modulo-content {
   display: none;
   background: #fff;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  margin-bottom: 2.5rem;
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   overflow-x: auto;
+  border: none;
 }
 
 .modulo-content.active {
@@ -630,30 +735,71 @@ img {
 
 .modulo-content h3 {
   color: var(--color-primary);
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2.2rem;
+  font-weight: 800;
+  text-align: center;
 }
 
 .modulo-semanas-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .modulo-semanas-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .modulo-content {
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+    border-radius: 10px;
+    max-width: 100vw;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  }
+  .modulo-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+  .modulo-semanas-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem 0;
+  }
 }
 
 .semana-card {
-  background: var(--color-surface);
-  border-radius: 16px;
+  background: none;
   box-shadow: none;
-  padding: 1.5rem;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   min-width: 0;
+}
+
+.semana-card img {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 0.2rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+  filter: invert(34%) sepia(21%) saturate(1258%) hue-rotate(13deg) brightness(91%) contrast(88%);
 }
 
 .semana-title {
   color: var(--color-secondary);
   font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.1rem;
+  text-align: left;
+  display: inline-block;
 }
 
 .semana-card ul {
@@ -661,90 +807,14 @@ img {
   padding: 0;
   margin: 0;
   text-align: left;
-  word-break: break-word;
 }
 
 .semana-card li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
   word-wrap: break-word;
   font-size: 0.98rem;
-}
-
-.pdf-title {
-  font-size: 1.2rem;
   color: var(--color-primary);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.pdf-desc {
-  font-size: 1rem;
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-}
-
-.descargar-btn {
-  display: inline-block;
-  background: var(--color-secondary);
-  color: #fff;
-  padding: 0.8rem 2rem;
-  border-radius: 24px;
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.descargar-btn:hover {
-  background: var(--color-primary);
-}
-
-@media (min-width: 600px) {
-  .modulo-semanas-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 992px) {
-  .modulo-semanas-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media (max-width: 600px) {
-  .modulos-tabs {
-    border-radius: 0;
-    margin-bottom: 1rem;
-    padding: 0 0.2rem;
-  }
-  .modulo-content {
-    border-radius: 0 0 12px 12px;
-    padding: 1.2rem 0.2rem;
-    margin-bottom: 1rem;
-    max-width: 100vw;
-    min-width: 0;
-    box-shadow: none;
-  }
-  .modulo-content h3 {
-    font-size: 1.05rem;
-  }
-  .semana-card {
-    padding: 1rem 0.5rem;
-    font-size: 0.95rem;
-  }
-  .semana-title {
-    font-size: 1rem;
-  }
-  .pdf-title {
-    font-size: 1rem;
-  }
-  .pdf-desc {
-    font-size: 0.95rem;
-  }
-  .descargar-btn {
-    width: 100%;
-    text-align: center;
-    font-size: 1rem;
-    padding: 0.8rem 0;
-  }
+  font-weight: 500;
 }
 
 /* Footer */
@@ -851,11 +921,18 @@ img {
   max-width: 420px;
   min-height: 180px;
   margin: 0;
-  box-shadow: none !important;
+  box-shadow: 0 4px 24px 0 rgba(191,161,58,0.10), 0 0 0 2px rgba(191,161,58,0.08);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: box-shadow 0.18s, transform 0.18s;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.info-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(191,161,58,0.16), 0 0 0 3px rgba(191,161,58,0.13);
+  transform: translateY(-2px) scale(1.01);
 }
 .info-card.active {
   background: var(--color-secondary);
@@ -890,11 +967,24 @@ img {
   margin: 0 auto 2rem auto;
 }
 @media (max-width: 600px) {
+  .info-card {
+    padding: 1.1rem 0.7rem 1.1rem 0.7rem;
+    min-width: 0;
+    max-width: 98vw;
+    font-size: 0.97rem;
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
   .info-card h4 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
   .info-card p {
-    font-size: 0.97rem;
+    font-size: 0.93rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 }
 @media (min-width: 768px) {
@@ -909,42 +999,41 @@ img {
   }
 }
 
-/* PROGRAMA RESTAURO LOGO Y TEXTO SOBRE MÓDULOS */
+/* PROGRAMA RESTAURO LOGO Y TEXTO SOBRE MÓDULOS - CENTRADO Y MODERNO */
 .programa-restauro-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 2rem auto;
   width: 100%;
-  max-width: 320px;
+  max-width: 900px;
 }
 .programa-logo {
-  width: 120px;
-  max-width: 50vw;
+  width: 220px;
+  max-width: 80vw;
   height: auto;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
   display: block;
 }
 .programa-restauro-title {
-  font-size: 1rem;
+  font-size: 1.7rem;
   color: var(--color-primary);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 0.2rem;
   text-align: center;
   letter-spacing: 0.01em;
 }
 @media (max-width: 600px) {
   .programa-restauro-header {
-    max-width: 90vw;
+    max-width: 98vw;
+    margin-bottom: 1.2rem;
   }
   .programa-logo {
-    width: 80px;
-    max-width: 70vw;
+    width: 120px;
+    max-width: 90vw;
   }
-  .modulos-tabs {
-    max-width: 100vw;
-    border-radius: 0;
-    margin-bottom: 1rem;
+  .programa-restauro-title {
+    font-size: 1.1rem;
   }
 }
