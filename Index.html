@@ -1,4 +1,4 @@
-  <script>
+<script>
     // Mostrar solo la sección activa del navbar, ocultando las demás
     function mostrarSoloSeccionActiva() {
       const hash = window.location.hash || '#heroSection';
@@ -362,30 +362,150 @@
 
   <!-- SECCIÓN: INFO CARDS -->
   <section id="infoCardsSection" class="info-cards-section">
-    <div class="info-card">
-      <h4>La duración del programa de estudios</h4>
-      <p>Es de cinco (5) módulos, cada uno de cuatro (4) semanas. Las clases serán impartidas
-        en dos días por semana, equivalente a cuatro (4) horas semanales.</p>
+    <div class="info-cards-flex">
+      <div class="info-card">
+        <h4>La duración del programa de estudios</h4>
+        <p>Es de cinco (5) módulos, cada uno de cuatro (4) semanas. Las clases serán impartidas
+          en dos días por semana, equivalente a cuatro (4) horas semanales.</p>
+      </div>
+      <div class="info-card active">
+        <h4>A QUIÉNES VA DIRIGIDO</h4>
+        <p>Capacita al personal de artes plásticas, diseño y arquitectura interesados en
+          conservación de colecciones de arte.</p>
+      </div>
+      <div class="info-card">
+        <h4>Las clases</h4>
+        <p>A partir del segundo módulo se ejecutan como taller práctico, cada uno con una duración
+          de cinco (5) semanas y cinco (5) horas semanales. Total: 116 horas académicas y 8 h de
+          seminarios.</p>
+      </div>
     </div>
-    <div class="info-card active">
-      <h4>A QUIÉNES VA DIRIGIDO</h4>
-      <p>Capacita al personal de artes plásticas, diseño y arquitectura interesados en
-        conservación de colecciones de arte.</p>
-    </div>
-    <div class="info-card">
-      <h4>Las clases</h4>
-      <p>A partir del segundo módulo se ejecutan como taller práctico, cada uno con una duración
-        de cinco (5) semanas y cinco (5) horas semanales. Total: 116 horas académicas y 8 h de
-        seminarios.</p>
-    </div>
+    <style>
+      .info-cards-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        gap: 36px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .info-card {
+        background: #bfa14a;
+        border-radius: 22px;
+        box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+        overflow: hidden;
+        max-width: 420px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 24px;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .info-card.active {
+        background: #e0c15a;
+      }
+      .info-card:hover {
+        box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+        transform: translateY(-4px) scale(1.02);
+      }
+      .info-card h4 {
+        color: #fff7d0;
+        font-size: 2.1rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .info-card p {
+        color: #fff7d0;
+        font-size: 1.08rem;
+        text-align: center;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+      @media (max-width: 900px) {
+        .info-cards-flex {
+          flex-direction: column;
+          gap: 18px;
+          align-items: center;
+        }
+        .info-card {
+          max-width: 98vw;
+        }
+        .info-card h4 {
+          font-size: 1.3rem;
+        }
+        .info-card p {
+          font-size: 0.98rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .info-card {
+          max-width: 99vw;
+        }
+        .info-card h4 {
+          font-size: 1.1rem;
+          margin-bottom: 10px;
+        }
+        .info-card p {
+          font-size: 0.89rem;
+        }
+      }
+    </style>
   </section>
 
 
   <!-- SECCIÓN: PROGRAMA RESTAURO (centrado sobre módulos) -->
   <div id="programaRestauroHeader" class="programa-restauro-header">
-    <img src="assets/images/logos/Programa Restauro - Logo Gold 2025.png" alt="Programa RESTAURO" class="programa-logo">
-    <div class="programa-restauro-title">TODO PUEDE SER RESTAURADO</div>
+    <div class="programa-restauro-header-inner">
+      <img src="assets/images/logos/Programa Restauro - Logo Gold 2025.png" alt="Programa RESTAURO" class="programa-logo">
+      <div class="programa-restauro-title">TODO PUEDE SER RESTAURADO</div>
+    </div>
   </div>
+  <style>
+    .programa-restauro-header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 32px auto;
+      padding: 0;
+    }
+    .programa-restauro-header-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .programa-logo {
+      display: block;
+      margin: 0 auto 12px auto;
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+    }
+    .programa-restauro-title {
+      text-align: center;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #bfa14a;
+      margin-bottom: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    @media (max-width: 700px) {
+      .programa-logo {
+        max-width: 180px;
+      }
+      .programa-restauro-title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 
   <!-- SECCIÓN: MÓDULOS -->
   <section id="modulosSection" class="modulos-section">
@@ -1560,6 +1680,7 @@
         <h3 class="contacto-form-title">Contáctanos</h3>
         <form id="contactForm">
           <input type="email" id="contactEmail" name="user_email" placeholder="Ingresa tu correo" required>
+          <input type="text" id="contactPhone" name="user_phone" placeholder="Número de teléfono" required pattern="[0-9+()\-\s]{7,20}" title="Ingresa un número válido">
           <input type="text" id="contactSubject" name="user_subject" placeholder="Asunto" required>
           <textarea id="contactMessage" name="user_message" placeholder="Escribe tu mensaje…" rows="5" required></textarea>
           <button type="submit">Enviar</button>
@@ -1675,7 +1796,7 @@
         margin-bottom: 1.2rem;
       }
       #contactForm {
-        width: 100%;
+        width:  100%;
         display: flex;
         flex-direction: column;
         gap: 16px;
@@ -1753,7 +1874,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
       (function(){
-        emailjs.init('YOUR_EMAILJS_USER_ID'); // Reemplaza con tu User ID de EmailJS
+        emailjs.init('GwETZpWKdNvoybSOZ'); // Reemplaza con tu User ID de EmailJS
       })();
       document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('contactForm');
@@ -1761,7 +1882,7 @@
         form.addEventListener('submit', function(e) {
           e.preventDefault();
           msg.style.display = 'none';
-          emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+          emailjs.sendForm('service_imqi78c', 'template_r8ow94n', form)
             .then(function() {
               msg.textContent = '¡Mensaje enviado correctamente!';
               msg.style.display = 'block';
@@ -1805,7 +1926,7 @@
         <div class="footer-contact-info">
           <div>+43 650 4290258</div>
           <div>@ads.restauraciones</div>
-          <div>support@adsrestauraciones.com</div>
+          <div>soporteadsrestauraciones@gmail.com</div>
         </div>
       </div>
       <div class="footer-col footer-col-newsletter">
