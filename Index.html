@@ -59,6 +59,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./fix_modal_terms_styles.css">
   <style>
     /* Estilos para ocultar todas las secciones por defecto */
     .nosotros-section,
@@ -85,140 +86,42 @@
     }
   </style>
 </head>
-      <!-- SECCIÓN: SU FUNDACIÓN (solo visible en Nosotros) -->
-      <section id="fundacionSection" class="fundacion-section" style="display:none;"></section>
-  <script>
-    // Mostrar u ocultar la sección "Su fundación" solo en la pantalla de Nosotros
-    function toggleFundacionSection() {
-      const fundacionSection = document.getElementById('fundacionSection');
-      if (!fundacionSection) return;
-      if (window.location.hash === '#nosotrosSection') {
-        fundacionSection.style.display = 'flex';
-        fundacionSection.innerHTML = `
-          <div class="fundacion-container">
-            <div class="fundacion-img-col">
-              <img src="assets/images/fotos/fundacion.jpg" alt="Restauración ADS" class="fundacion-img">
-            </div>
-            <div class="fundacion-text-col">
-              <h2>Su fundación</h2>
-              <p>
-                Fue registrada legalmente en julio del 2015 pero su fundador ya tenía experiencia en restauración trabajando como asistente del Dr. en BB AA restaurador Fernando de Tovar, con quien participa en diferentes proyectos de restauración de Patrimonio Cultural y colecciones de arte como el Panteón Nacional, Palacio de Miraflores y las Iglesias de San Francisco y Dulce Nombre de Jesús en Petare, proyecto a cargo del Arq. Luis Guillermo Marcano, ganador del XI Bienal Nacional de Arquitectura en 2014, mención: Restauración.<br><br>
-                Ya bajo la firma de ADS Restauraciones se comienzan restauraciones de colecciones de arte moderno y contemporáneo en Colombia para galerías como La Cometa en Bogotá, LGM Galería y Jacob Karpio Galería.<br><br>
-                En Venezuela comienza a desarrollar monumentos y restauraciones para diferentes instituciones y consulados, siendo los más significativos la Embajada de Argentina, la Embajada de Polonia, el Consulado del Reino de España y el Consulado del Reino de Tailandia.<br><br>
-                ADS actualmente trabaja en alianza con la Galería Freites, siendo esta la galería más grande e importante de Venezuela.<br><br>
-                En 2025 tiene previsto restaurar colecciones en Italia y Alemania en el Kallman Museum a quienes les restauró una de sus obras principales, una pintura al natural de Armando Reverón realizada por Hans Jürgen Kallman, durante su estadía en Venezuela en 1949.
-              </p>
-            </div>
-          </div>
-        `;
-      } else {
-        fundacionSection.style.display = 'none';
-        fundacionSection.innerHTML = '';
-      }
-    }
-    window.addEventListener('hashchange', toggleFundacionSection);
-    window.addEventListener('DOMContentLoaded', toggleFundacionSection);
-  </script>
-  <style>
-    .fundacion-section {
-      width: 100%;
-      background: #4a3e1a;
-      padding: 60px 0 40px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-    }
-    .fundacion-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      max-width: 1200px;
-      width: 100%;
-      gap: 48px;
-      box-sizing: border-box;
-      padding: 0 24px;
-    }
-    .fundacion-img-col {
-      flex: 1.1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .fundacion-img {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-      background: #fff;
-      margin: 0 auto;
-      display: block;
-    }
-    .fundacion-text-col {
-      flex: 1.3;
-      color: #f6eac2;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.08rem;
-      line-height: 1.7;
-      padding: 0 0 0 10px;
-    }
-    .fundacion-text-col h2 {
-      color: #ffe37a;
-      font-size: 2.1rem;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-    }
-    .fundacion-text-col p {
-      color: #f6eac2;
-      font-size: 1.08rem;
-      margin: 0;
-    }
-    @media (max-width: 900px) {
-      .fundacion-container {
-        flex-direction: column;
-        gap: 28px;
-        padding: 0 10px;
-      }
-      .fundacion-img-col, .fundacion-text-col {
-        width: 100%;
-        max-width: 100vw;
-        padding: 0;
-      }
-      .fundacion-img {
-        max-width: 95vw;
-        margin-bottom: 10px;
-      }
-      .fundacion-text-col h2 {
-        font-size: 1.4rem;
-      }
-      .fundacion-text-col p {
-        font-size: 0.98rem;
-      }
-    }
-    @media (max-width: 600px) {
-      .fundacion-section {
-        padding: 32px 0 24px 0;
-      }
-      .fundacion-container {
-        gap: 16px;
-        padding: 0 2vw;
-      }
-      .fundacion-img {
-        max-width: 99vw;
-        border-radius: 10px;
-      }
-      .fundacion-text-col h2 {
-        font-size: 1.1rem;
-        margin-bottom: 0.7rem;
-      }
-      .fundacion-text-col p {
-        font-size: 0.89rem;
-      }
-    }
-  </style>
-</head>
+      <!-- Removed separate fundacionSection and its dynamic JS and CSS -->
 
+  <!-- Removed dynamic fundacionSection and its JS and CSS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const btnShowTerms = document.getElementById('btnShowTerms');
+      const modalTerms = document.getElementById('modalTerms');
+      const closeTermsBtn = document.getElementById('closeTermsBtn');
+
+      btnShowTerms.addEventListener('click', function() {
+        modalTerms.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // Disable form inputs while terms modal is open
+        document.getElementById('formInscripcion').querySelectorAll('input, textarea, button').forEach(el => {
+          el.disabled = true;
+        });
+      });
+
+      closeTermsBtn.addEventListener('click', function() {
+        modalTerms.style.display = 'none';
+        document.body.style.overflow = '';
+        // Re-enable form inputs when terms modal is closed
+        document.getElementById('formInscripcion').querySelectorAll('input, textarea, button').forEach(el => {
+          el.disabled = false;
+        });
+      });
+
+      modalTerms.addEventListener('click', function(e) {
+        if (e.target === modalTerms) {
+          modalTerms.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</head>
 <body>
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -271,9 +174,301 @@
       <img src="assets/images/logos/Programa Restauro - Logo Gold 2025.png" alt="Programa RESTAURO"
         class="hero-logo">
       <h1 class="hero-title">Domina las técnicas de restauración avanzada</h1>
-      <p class="hero-desc">¡Inicia en junio! Últimos cupos disponibles</p>
+      <p class="hero-desc">Clases presenciales en Caracas, Venezuela.</p>
       <button class="hero-btn">Inscribirme ahora</button>
+    <!-- MODAL INSCRIPCIÓN ÚNICO Y LIMPIO -->
+    <div id="modalInscripcion" class="modal-inscripcion" style="display:none;">
+      <div class="modal-inscripcion-content">
+        <button class="modal-inscripcion-close" id="closeModalBtn" aria-label="Cerrar">&times;</button>
+        <h2>Inscripción al Programa Restauro</h2>
+        <form id="formInscripcion" autocomplete="off">
+          <!-- Bloque de inversión: ahora primero, sin emoji, mejor distribución -->
+          <div class="modal-inscripcion-group modal-inscripcion-inversion-info">
+            <div class="inversion-text">
+              <span class="inversion-title">Inversión del Programa</span>
+              <span class="inversion-detalle" style="display:block;margin-top:2px;">Cada módulo: <b>200&nbsp;USD</b></span>
+              <span class="inversion-detalle" style="display:block;margin-top:2px;">Total: <b>1000&nbsp;USD</b></span>
+            </div>
+          </div>
+          <!-- Bloque de indexación BCV -->
+          <div class="modal-inscripcion-group modal-inscripcion-inversion-info" style="flex-direction:column; align-items:center; text-align:center; gap:8px;">
+            <img src="assets/images/logos/bcv.png" alt="Logo BCV" style="width:44px;height:44px;object-fit:contain;display:block;margin:0 auto 4px auto;">
+            <div class="inversion-text" style="width:100%;">
+              <span class="inversion-title" style="font-size:0.99rem;display:block;">Nuestros precios están indexados a la tasa oficial del Banco Central de Venezuela.</span>
+            </div>
+          </div>
+          <div class="modal-inscripcion-group modal-inscripcion-terms-info" style="margin-top: 12px; padding: 12px; background: #fff3d6; border: 2px solid #bfa14a; border-radius: 10px; color: #3d2e0c; font-size: 1rem; font-family: 'Montserrat', sans-serif; text-align: center;">
+            <strong>Términos y Condiciones:</strong> Al iniciar el Programa Restauro, el participante se compromete a completar todos los módulos para poder obtener el certificado oficial. La no finalización de alguno de los módulos implica la no emisión del certificado.
+          </div>
+          <div class="modal-inscripcion-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="modal-inscripcion-group">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" required>
+          </div>
+          <div class="modal-inscripcion-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required pattern="[0-9\-\+\s]+">
+          </div>
+          <div class="modal-inscripcion-group">
+            <label>Método de pago</label>
+            <div class="modal-inscripcion-tabs">
+              <button type="button" class="modal-inscripcion-tab active" data-metodo="pago-movil">Pago Móvil</button>
+              <button type="button" class="modal-inscripcion-tab" data-metodo="efectivo">Efectivo</button>
+            </div>
+          </div>
+          <div class="modal-inscripcion-group modal-inscripcion-datos-pagomovil" id="pagoMovilInfo">
+            <div class="modal-inscripcion-datos-box">
+              <strong>Datos Pago Móvil:</strong><br>
+              <span>Teléfono: <b>0424-1581088</b></span><br>
+              <span>Banco: <b>Banesco</b></span><br>
+              <span>CI/RIF: <b>18492878</b></span>
+            </div>
+          </div>
+          <div class="modal-inscripcion-group">
+            <label for="referencia">Referencia de pago</label>
+            <input type="text" id="referencia" name="referencia" required>
+          </div>
+          <div class="modal-inscripcion-group">
+            <label for="montoTransferido">Monto transferido</label>
+            <input type="number" id="montoTransferido" name="montoTransferido" required min="0" step="any" placeholder="Ejemplo: 100.00">
+          </div>
+          <div class="modal-inscripcion-group">
+            <label for="fechaPago">Fecha de pago</label>
+            <input type="date" id="fechaPago" name="fechaPago" required>
+          </div>
+          <div class="modal-inscripcion-group">
+            <label for="comentarios">Comentarios (opcional)</label>
+            <textarea id="comentarios" name="comentarios" rows="2"></textarea>
+          </div>
+
+          <button type="submit" class="modal-inscripcion-btn">Enviar inscripción</button>
+          <div id="formFeedback" class="form-feedback"></div>
+        </form>
+      </div>
     </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const openBtn = document.querySelector('.hero-btn');
+      const modal = document.getElementById('modalInscripcion');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const form = document.getElementById('formInscripcion');
+      const pagoTabs = modal.querySelectorAll('.modal-inscripcion-tab');
+      const pagoMovilInfo = document.getElementById('pagoMovilInfo');
+      const feedback = document.getElementById('formFeedback');
+      const btnInscribirseAhora = document.getElementById('btnInscribirseAhora');
+
+      function openModal() {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        form.reset();
+        feedback.textContent = '';
+        pagoTabs[0].classList.add('active');
+        pagoTabs[1].classList.remove('active');
+        pagoMovilInfo.style.display = 'block';
+      }
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+
+      if (btnInscribirseAhora) {
+        btnInscribirseAhora.addEventListener('click', openModal);
+      }
+
+      pagoTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          pagoTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          if (this.dataset.metodo === 'pago-movil') {
+            pagoMovilInfo.style.display = 'block';
+          } else {
+            pagoMovilInfo.style.display = 'none';
+          }
+        });
+      });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        feedback.textContent = 'Enviando...';
+        feedback.style.color = '#bfa14a';
+        // Envío real con EmailJS usando el template correcto
+        emailjs.sendForm('service_imqi78c', 'template_6cw9rhn', form)
+          .then(function() {
+            feedback.textContent = '¡Inscripción enviada! Nos pondremos en contacto pronto.';
+            feedback.style.color = 'green';
+            setTimeout(closeModal, 1800);
+          }, function(error) {
+            feedback.textContent = 'Error al enviar. Intenta de nuevo.';
+            feedback.style.color = 'red';
+          });
+      });
+    });
+  </script>
+    </div>
+</style>
+<style>
+  .modal-inscripcion {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .modal-inscripcion[style*="flex"] { display: flex !important; }
+  .modal-inscripcion-content {
+    position: relative; z-index: 2;
+    background: #fff; border-radius: 18px; box-shadow: 0 8px 48px rgba(0,0,0,0.18);
+    padding: 32px 28px 24px 28px; max-width: 420px; width: 96vw;
+    display: flex; flex-direction: column; align-items: stretch;
+    animation: modalIn 0.25s;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+  @keyframes modalIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal-inscripcion-close {
+    position: absolute; right: 18px; top: 12px; background: none; border: none;
+    font-size: 2.1rem; color: #bfa14a; cursor: pointer; z-index: 3;
+    transition: color 0.2s;
+  }
+  .modal-inscripcion-close:hover { color: #a08a3a; }
+  .modal-inscripcion-content h2 {
+    color: #bfa14a;
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-align: center;
+    padding-right: 38px; /* Espacio para la X */
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 600px) {
+    .modal-inscripcion-content h2 {
+      padding-right: 32px;
+      font-size: 1.08rem;
+    }
+  }
+  .modal-inscripcion-group { margin-bottom: 16px; display: flex; flex-direction: column; }
+  .modal-inscripcion-group label { font-weight: 600; color: #3d2e0c; margin-bottom: 6px; }
+  .modal-inscripcion-group input, .modal-inscripcion-group textarea {
+    border: 1px solid #e0c15a; border-radius: 7px; padding: 8px 10px;
+    font-size: 1rem; font-family: inherit; background: #fffbe9;
+    transition: border 0.2s;
+  }
+  .modal-inscripcion-group input:focus, .modal-inscripcion-group textarea:focus { border: 1.5px solid #bfa14a; outline: none; }
+  .modal-inscripcion-tabs { display: flex; gap: 10px; }
+  .modal-inscripcion-tab {
+    flex: 1; padding: 7px 0; border: 1.5px solid #e0c15a; border-radius: 7px;
+    background: #fffbe9; color: #bfa14a; font-weight: 600; cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+  }
+  .modal-inscripcion-tab.active, .modal-inscripcion-tab:focus {
+    background: #bfa14a; color: #fff; border: 1.5px solid #bfa14a;
+  }
+  .modal-inscripcion-datos-pagomovil { font-size: 0.98rem; color: #3d2e0c; background: #fffbe9; border-radius: 7px; padding: 10px 12px; margin-bottom: 8px; display: block; }
+  .modal-inscripcion-datos-pagomovil[style*="none"] { display: none !important; }
+  .modal-inscripcion-datos-box {
+    background: #fffbe6;
+    border: 1.5px solid #bfa14a;
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: #6b5e36;
+    font-size: 1.01rem;
+    box-shadow: 0 2px 8px rgba(191,161,74,0.08);
+    text-align: left;
+    max-width: 340px;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .form-feedback { margin-top: 10px; font-size: 1rem; text-align: center; min-height: 22px; }
+  .modal-inscripcion-btn {
+    width: 100%;
+    padding: 12px;
+    background: #bfa14a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(90,70,30,0.08);
+    margin-top: 8px;
+  }
+  .modal-inscripcion-btn:hover { background: #a88d3a; }
+  @media (max-width: 600px) {
+    .modal-inscripcion-content { padding: 18px 4vw 14px 4vw; max-width: 99vw; }
+    .modal-inscripcion-content h2 { font-size: 1.08rem; }
+    .modal-inscripcion-group label { font-size: 0.98rem; }
+    .modal-inscripcion-group input, .modal-inscripcion-group textarea { font-size: 0.97rem; }
+    .modal-inscripcion-btn { font-size: 1rem; }
+  }
+  /* BLOQUE DE INVERSIÓN DESTACADO EN EL MODAL */
+  .modal-inscripcion-inversion-info {
+    background: #fff3d6;
+    border: 2px solid #bfa14a;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    margin: 18px 0 10px 0;
+    box-shadow: 0 2px 10px rgba(191,161,74,0.10);
+  }
+  .modal-inscripcion-inversion-info .inversion-icon {
+    font-size: 2.1rem;
+    color: #bfa14a;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px #fffbe9);
+  }
+  .modal-inscripcion-inversion-info .inversion-text {
+    color: #2a210a;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .modal-inscripcion-inversion-info .inversion-title {
+    font-size: 1.01rem;
+    font-weight: 700;
+    color: #1a1405;
+    letter-spacing: 0.01em;
+    margin-bottom: 2px;
+    display: inline-block;
+  }
+  .modal-inscripcion-inversion-info .inversion-detalle {
+    font-size: 1.08rem;
+    color: #2a210a;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 600px) {
+    .modal-inscripcion-inversion-info {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 8px;
+      font-size: 0.97rem;
+    }
+    .modal-inscripcion-inversion-info .inversion-icon {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+    .modal-inscripcion-inversion-info .inversion-title,
+    .modal-inscripcion-inversion-info .inversion-detalle {
+      font-size: 0.97rem;
+    }
+  }
+</style>
   </section>
 
   <!-- SECCIÓN: APRENDE A RECUPERAR -->
@@ -325,37 +520,37 @@
   <!-- SECCIÓN: BENEFICIOS Y CUPOS -->
   <section id="beneficiosSection" class="beneficios-section">
     <h2>Beneficios del programa</h2>
-    <div class="beneficios-list">
-      <div class="beneficio">
+    <div class="beneficios-list" style="gap: 48px; margin-bottom: 48px;">
+      <div class="beneficio" style="margin-right: 12px;">
         <img src="assets/images/icons/business-value.svg" alt="">
         <span>Formación práctica con expertos</span>
       </div>
-      <div class="beneficio">
+      <div class="beneficio" style="margin-right: 12px;">
         <img src="assets/images/icons/diploma.svg" alt="">
         <span>Certificación reconocida</span>
       </div>
-      <div class="beneficio">
+      <div class="beneficio" style="margin-right: 12px;">
         <img src="assets/images/icons/key.svg" alt="">
         <span>Oportunidades laborales post-curso</span>
       </div>
-      <div class="beneficio">
+      <div class="beneficio" style="margin-right: 12px;">
         <img src="assets/images/icons/flask-potion.svg" alt="">
         <span>Acceso a materiales exclusivos</span>
       </div>
     </div>
-    <div class="beneficios-cupos-card">
-      <div class="beneficios-cupos-img">
-        <img src="assets/images/Banners/Banner_cupos_limitados_900x520.jpg" alt="Programa Restauro">
+    <div class="beneficios-cupos-card" style="display: flex; flex-direction: column; gap: 16px; max-width: 900px; margin: 0 auto; padding: 0 12px;">
+      <div class="beneficios-cupos-img" style="width: 100%;">
+        <img src="assets/images/Banners/Banner_cupos_limitados_900x520.jpg" alt="Programa Restauro" style="width: 100%; height: auto; border-radius: 12px;">
       </div>
-      <div class="beneficios-cupos-info">
+      <div class="beneficios-cupos-info" style="width: 100%; display: flex; flex-direction: column; gap: 12px;">
         <h3>Próximas fechas</h3>
         <h2>Cupos limitados</h2>
-        <p>Inicia el 10 de junio de 2025</p>
-        <div class="beneficios-cupos-countdown">
+        <p>Inicia el 29 de julio de 2025</p>
+        <div class="beneficios-cupos-countdown" style="display: flex; align-items: center; gap: 12px;">
           <span id="countdown-timer">Faltan <b>-- días · --h --m --s</b></span>
-          <p>para el gran inicio</p>
+          <p style="margin: 0;">para el gran inicio</p>
+          <button id="btnInscribirseAhora" class="hero-btn" style="margin-left: auto; white-space: nowrap; background-color: #bfa14a; border-color: #bfa14a;">Inscribirse ahora</button>
         </div>
-        <button class="beneficios-cupos-btn">Inscribirme</button>
       </div>
     </div>
   </section>
@@ -369,7 +564,7 @@
           en dos días por semana, equivalente a cuatro (4) horas semanales.</p>
       </div>
       <div class="info-card active">
-        <h4>A QUIÉNES VA DIRIGIDO</h4>
+        <h4>A quiénes va dirigido</h4>
         <p>Capacita al personal de artes plásticas, diseño y arquitectura interesados en
           conservación de colecciones de arte.</p>
       </div>
@@ -764,116 +959,31 @@
       <div class="nosotros-frase">
         <span>“Aún cuando hay daños irreversibles, todo puede ser restaurado”.<br><span>Douglas Sosa.</span></span>
       </div>
-  <style>
-    /* Ajustes para separar la frase inferior y resaltar la estatua */
-    .nosotros-bg-central.nosotros-bg-responsive {
-      /* ...existing code... */
-      min-height: 700px;
-      padding-bottom: 0;
-    }
-    .nosotros-layout {
-      /* ...existing code... */
-      padding-bottom: 80px;
-    }
-    .nosotros-frase {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 3;
-      bottom: 30px;
-      padding-bottom: 10px;
-      padding-top: 40px;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(30,24,10,0.12) 60%, rgba(30,24,10,0.22) 100%);
-      box-sizing: border-box;
-    }
-    .nosotros-frase span {
-      font-size: 1.25rem;
-      color: #e6d8b2;
-      font-style: italic;
-      font-weight: 500;
-    }
-    .nosotros-frase span span {
-      font-size: 1.08rem;
-      font-style: normal;
-      display: block;
-    }
-    .nosotros-col-logo, .nosotros-col-director {
-      max-width: 270px;
-    }
-    .nosotros-info h2, .nosotros-col-director h2 {
-      font-size: 1.25rem;
-    }
-    .nosotros-info p, .nosotros-col-director p {
-      font-size: 0.98rem;
-    }
-    .nosotros-col-director h3 {
-      font-size: 1.05rem;
-    }
-    .nosotros-estatua-img {
-      max-height: 900px;
-      min-height: 320px;
-      width: auto;
-      max-width: 100%;
-      display: block;
-      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.25));
-      margin: 0 10px;
-      transition: max-height 0.3s;
-    }
-    @media (max-width: 1100px) {
-      .nosotros-estatua-img {
-        max-height: 420px;
-        min-height: 180px;
-      }
-      .nosotros-layout {
-        padding-bottom: 60px;
-      }
-    }
-    @media (max-width: 900px) {
-      .nosotros-estatua-img {
-        max-height: 270px;
-        min-height: 120px;
-      }
-      .nosotros-layout {
-        padding-bottom: 40px;
-      }
-    }
-    @media (max-width: 700px) {
-      .nosotros-frase {
-        padding-top: 20px;
-        bottom: 10px;
-      }
-      .nosotros-estatua-img {
-        max-height: 160px;
-        min-height: 80px;
-      }
-      .nosotros-info h2, .nosotros-col-director h2 {
-        font-size: 1.05rem;
-      }
-      .nosotros-info p, .nosotros-col-director p {
-        font-size: 0.89rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .nosotros-frase {
-        padding-top: 10px;
-        bottom: 0;
-      }
-      .nosotros-estatua-img {
-        max-height: 90px;
-        min-height: 50px;
-      }
-    }
   </style>
+
+  <!-- SECCIÓN: SU FUNDACIÓN -->
+  <section id="fundacionSection" class="fundacion-section" style="background: #4a3e1a; padding: 60px 0 40px 0; box-sizing: border-box; margin-top: 40px;">
+    <div class="fundacion-container" style="display: flex; flex-direction: row; align-items: center; justify-content: center; max-width: 1200px; width: 100%; gap: 48px; box-sizing: border-box; padding: 0 24px;">
+      <div class="fundacion-img-col" style="flex: 1.1; display: flex; justify-content: center; align-items: center;">
+        <img src="assets/images/fotos/fundacion.jpg" alt="Restauración ADS" class="fundacion-img" style="width: 100%; max-width: 420px; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); background: #fff; margin: 0 auto; display: block;">
+      </div>
+      <div class="fundacion-text-col" style="flex: 1.3; color: #f6eac2; font-family: 'Montserrat', sans-serif; font-size: 1.08rem; line-height: 1.7; padding: 0 0 0 10px;">
+        <h2 style="color: #ffe37a; font-size: 2.1rem; font-weight: 700; margin-bottom: 1.2rem;">Su fundación</h2>
+        <p style="color: #f6eac2; font-size: 1.08rem; margin: 0;">
+          Fue registrada legalmente en julio del 2015 pero su fundador ya tenía experiencia en restauración trabajando como asistente del Dr. en BB AA restaurador Fernando de Tovar, con quien participa en diferentes proyectos de restauración de Patrimonio Cultural y colecciones de arte como el Panteón Nacional, Palacio de Miraflores y las Iglesias de San Francisco y Dulce Nombre de Jesús en Petare, proyecto a cargo del Arq. Luis Guillermo Marcano, ganador del XI Bienal Nacional de Arquitectura en 2014, mención: Restauración.<br><br>
+          Ya bajo la firma de ADS Restauraciones se comienzan restauraciones de colecciones de arte moderno y contemporáneo en Colombia para galerías como La Cometa en Bogotá, LGM Galería y Jacob Karpio Galería.<br><br>
+          En Venezuela comienza a desarrollar monumentos y restauraciones para diferentes instituciones y consulados, siendo los más significativos la Embajada de Argentina, la Embajada de Polonia, el Consulado del Reino de España y el Consulado del Reino de Tailandia.<br><br>
+          ADS actualmente trabaja en alianza con la Galería Freites, siendo esta la galería más grande e importante de Venezuela.<br><br>
+          En 2025 tiene previsto restaurar colecciones en Italia y Alemania en el Kallman Museum a quienes les restauró una de sus obras principales, una pintura al natural de Armando Reverón realizada por Hans Jürgen Kallman, durante su estadía en Venezuela en 1949.
+        </p>
+      </div>
+    </div>
+  </section>
     </div>
   <style>
     /* --- NOSOTROS RESPONSIVO --- */
     .nosotros-bg-central.nosotros-bg-responsive {
       background: url('assets/images/Banners/David-Michelangelo-backgroundg-min.png') center/cover no-repeat;
-      min-height: 700px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
       padding: 60px 0 100px 0;
     }
@@ -884,7 +994,7 @@
       width: 100%;
       max-width: 1400px;
       margin: 0 auto;
-      gap: 40px;
+      gap: 10px; /* Further reduced gap from 20px to 10px */
       z-index: 2;
       position: relative;
     }
@@ -893,7 +1003,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      max-width: 340px;
+      max-width: 320px; /* Increased max-width from 280px to 320px */
       color: #e6d8b2;
       text-align: right;
     }
@@ -1198,7 +1308,7 @@
       <div class="formacion-card">
         <div class="formacion-card-img" style="background-image:url('assets/images/Banners/Bannerprogramarestauro.jpg');"></div>
         <div class="formacion-card-content">
-          <h3>Programa restauro</h3>
+          <h3>Programa Restauro</h3>
           <p>Domina la restauración de pinturas, esculturas y obras gráficas. Aprende conservación, tasación e identificación de falsificaciones con enfoque teórico y práctico. ¡Postúlate hoy!</p>
         </div>
       </div>
@@ -1437,14 +1547,14 @@
       <div class="servicio-card">
         <div class="servicio-card-img" style="background-image:url('assets/images/Banners/Banner_certificacion_1840x513.jpg');"></div>
         <div class="servicio-card-content">
-          <h3>Certificación de Autenticidad</h3>
+          <h3>Certificación de autenticidad</h3>
           <p>Estimamos dictámenes técnicos especializados que garantizan la autenticidad de obras de arte, respaldados por análisis formales, materiales y de procedencia.</p>
         </div>
       </div>
       <div class="servicio-card">
         <div class="servicio-card-img" style="background-image:url('assets/images/Banners/Banner_compra_venta_1840x513.jpg');"></div>
         <div class="servicio-card-content">
-          <h3>Compra-Venta</h3>
+          <h3>Compra-venta</h3>
           <p>Asesoramos en la adquisición y comercialización de piezas artísticas, garantizando transacciones seguras, justas y alineadas con el valor real del mercado.</p>
         </div>
       </div>
@@ -1649,9 +1759,8 @@
 
     <div class="contacto-container">
       <div class="contacto-texto">
-        <h2 class="contacto-titulo">Hablemos de tu obra<br>de tu proyecto o de tu próxima gran idea…</h2>
-        <p class="contacto-desc">Ya sea que necesites restaurar una pieza invaluable, certificar su autenticidad o simplemente recibir orientación experta, estamos aquí para escucharte.</p>
-        <p class="contacto-desc-italic">Escríbenos. Cada mensaje abre la puerta a una historia que vale la pena preservar.</p>
+        <h2 class="contacto-titulo">Hablemos de tu obra<br>de tu proyecto o de tu próxima gran idea.</h2>
+        <p class="contacto-desc">Ya sea que necesites restaurar una pieza invaluable, certificar su autenticidad o recibir orientación experta, estamos aquí para escucharte.</p>
         <ul class="contacto-features">
           <li>
             <div class="contacto-feature-icon"><img src="assets/images/icons/icon_user-trust.svg" alt=""></div>
@@ -1677,6 +1786,7 @@
         </ul>
       </div>
       <div class="contacto-formulario">
+        <img src="assets/images/logos/ADS - Logo Gold 2025.png" alt="ADS Restauraciones Logo" class="contacto-logo" />
         <h3 class="contacto-form-title">Contáctanos</h3>
         <form id="contactForm">
           <input type="email" id="contactEmail" name="user_email" placeholder="Ingresa tu correo" required>
@@ -2189,20 +2299,50 @@
   // --- Scroll directo a "Su fundación" al pulsar Nosotros ---
   document.addEventListener('DOMContentLoaded', function() {
     const nosotrosLink = document.getElementById('nosotrosLink');
+      if (nosotrosLink) {
+        // Removed duplicate event listener for scrolling to "Su fundación"
+      }
+  });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const agreeTermsBtn = document.getElementById('agreeTermsBtn');
+      const modalTerms = document.getElementById('modalTerms');
+      const termsCheckbox = document.getElementById('termsCheckbox');
+
+      agreeTermsBtn.addEventListener('click', function() {
+        termsCheckbox.checked = true;
+        modalTerms.style.display = 'none';
+        document.body.style.overflow = '';
+        // Re-enable form inputs when terms modal is closed
+        document.getElementById('formInscripcion').querySelectorAll('input, textarea, button').forEach(el => {
+          el.disabled = false;
+        });
+        // Optionally, set focus back to the submit button or form
+        document.querySelector('.modal-inscripcion-btn[type="submit"]').focus();
+      });
+      // Prevent default button behavior to avoid form submission or other side effects
+      agreeTermsBtn.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+      });
+    });
+
+    // Scroll suave a "Acerca de nosotros" al pulsar "Nosotros"
+    const nosotrosLink = document.getElementById('nosotrosLink');
     if (nosotrosLink) {
       nosotrosLink.addEventListener('click', function(e) {
-        // Permite el cambio de hash y espera a que la sección "Su fundación" esté visible
+        e.preventDefault();
+        // Cambiar hash a #nosotrosSection
+        window.location.hash = '#nosotrosSection';
+        // Esperar un momento para que la sección se muestre
         setTimeout(function() {
-          const fundacionSection = document.getElementById('fundacionSection');
-          if (fundacionSection && fundacionSection.style.display !== 'none') {
-            fundacionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const acercaNosotros = document.querySelector('.nosotros-bg-central');
+          if (acercaNosotros) {
+            acercaNosotros.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }, 100);
       });
     }
-  });
-</script>
-
+  </script>
 </body>
-
 </html>
