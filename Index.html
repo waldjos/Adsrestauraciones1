@@ -198,7 +198,7 @@
             </div>
           </div>
           <div class="modal-inscripcion-group modal-inscripcion-terms-info" style="margin-top: 12px; padding: 12px; background: #fff3d6; border: 2px solid #bfa14a; border-radius: 10px; color: #3d2e0c; font-size: 1rem; font-family: 'Montserrat', sans-serif; text-align: center;">
-            <strong>Términos y Condiciones:</strong> Al iniciar el Programa Restauro, el participante se compromete a completar todos los módulos para poder obtener el certificado oficial. La no finalización de alguno de los módulos implica la no emisión del certificado.
+            <strong>Términos y Condiciones:</strong> Al iniciar el Programa Restauro el participante se compromete a completar todos los módulos para poder obtener el certificado oficial. La no finalización de alguno de los módulos implica la no emisión del certificado.
           </div>
           <div class="modal-inscripcion-group">
             <label for="nombre">Nombre completo</label>
@@ -543,12 +543,10 @@
         <img src="assets/images/Banners/Banner_cupos_limitados_900x520.jpg" alt="Programa Restauro" style="width: 100%; height: auto; border-radius: 12px;">
       </div>
       <div class="beneficios-cupos-info" style="width: 100%; display: flex; flex-direction: column; gap: 12px;">
-        <h3>Próximas fechas</h3>
-        <h2>Cupos limitados</h2>
+        <h2>Reserva tu cupo</h2>
         <p>Inicia el 29 de julio de 2025</p>
         <div class="beneficios-cupos-countdown" style="display: flex; align-items: center; gap: 12px;">
           <span id="countdown-timer">Faltan <b>-- días · --h --m --s</b></span>
-          <p style="margin: 0;">para el gran inicio</p>
           <button id="btnInscribirseAhora" class="hero-btn" style="margin-left: auto; white-space: nowrap; background-color: #bfa14a; border-color: #bfa14a;">Inscribirse ahora</button>
         </div>
       </div>
@@ -563,7 +561,7 @@
         <p>Es de cinco (5) módulos, cada uno de cuatro (4) semanas. Las clases serán impartidas
           en dos días por semana, equivalente a cuatro (4) horas semanales.</p>
       </div>
-      <div class="info-card active">
+      <div class="info-card">
         <h4>A quiénes va dirigido</h4>
         <p>Capacita al personal de artes plásticas, diseño y arquitectura interesados en
           conservación de colecciones de arte.</p>
@@ -598,9 +596,11 @@
         margin-bottom: 24px;
         transition: box-shadow 0.2s, transform 0.2s;
       }
+      /*
       .info-card.active {
         background: #e0c15a;
       }
+      */
       .info-card:hover {
         box-shadow: 0 8px 40px rgba(0,0,0,0.18);
         transform: translateY(-4px) scale(1.02);
@@ -1528,6 +1528,13 @@
       <p class="servicios-sub">
         Ofrecemos un portafolio de servicios profesionales orientados a la restauración, valoración y certificación de obras de arte, combinando conocimiento técnico, enfoque ético y sensibilidad estética.
       </p>
+      <style>
+        /* Added to left align the h2 and p.servicios-sub in serviciosSection */
+        #serviciosSection h2,
+        #serviciosSection p.servicios-sub {
+          text-align: left;
+        }
+      </style>
     </div>
     <div class="servicios-cards">
       <div class="servicio-card">
@@ -1759,34 +1766,41 @@
 
     <div class="contacto-container">
       <div class="contacto-texto">
-        <h2 class="contacto-titulo">Hablemos de tu obra<br>de tu proyecto o de tu próxima gran idea.</h2>
+        <h2 class="contacto-titulo">Hablemos de tu obra,<br>de tu proyecto o de tu próxima gran idea.</h2>
         <p class="contacto-desc">Ya sea que necesites restaurar una pieza invaluable, certificar su autenticidad o recibir orientación experta, estamos aquí para escucharte.</p>
         <ul class="contacto-features">
+      <style>
+        /* Added to left align only the h2.contacto-titulo and p.contacto-desc */
+        h2.contacto-titulo,
+        p.contacto-desc {
+          text-align: left;
+        }
+      </style>
           <li>
-            <div class="contacto-feature-icon"><img src="assets/images/icons/icon_user-trust.svg" alt=""></div>
+            <div class="contacto-feature-icon"><img src="assets/images/icons/icon_excelencia_tecnica_84x84.svg" alt=""></div>
             <div>
-              <h5>Excelencia Técnica y Académica</h5>
+              <h5>Excelencia técnica y académica</h5>
               <p>Contamos con profesionales altamente calificados y especializados en restauración, tasación y certificación de obras de arte.</p>
             </div>
           </li>
           <li>
             <div class="contacto-feature-icon"><img src="assets/images/icons/icon_confianza_rigo_84x84.svg" alt=""></div>
             <div>
-              <h5>Confianza y Rigor Profesional</h5>
+              <h5>Confianza y rigor profesional</h5>
               <p>Aplicamos criterios éticos y metodologías internacionales para garantizar resultados impecables, transparentes y verificables.</p>
             </div>
           </li>
           <li>
             <div class="contacto-feature-icon"><img src="assets/images/icons/icon_atencion_personalizada_84x84.svg" alt=""></div>
             <div>
-              <h5>Atención Personalizada y Confidencial</h5>
+              <h5>Atención personalizada y confidencial</h5>
               <p>Cada obra es única. Por ello ofrecemos asesoría exclusiva, ajustada a tus necesidades y con total discreción.</p>
             </div>
           </li>
         </ul>
       </div>
       <div class="contacto-formulario">
-        <img src="assets/images/logos/ADS - Logo Gold 2025.png" alt="ADS Restauraciones Logo" class="contacto-logo" />
+        <img src="assets/images/logos/Diseño sin título (7).png" alt="ADS Restauraciones Logo" class="contacto-logo" />
         <h3 class="contacto-form-title">Contáctanos</h3>
         <form id="contactForm">
           <input type="email" id="contactEmail" name="user_email" placeholder="Ingresa tu correo" required>
@@ -1847,7 +1861,8 @@
         display: flex;
         flex-direction: column;
         gap: 18px;
-        align-items: center;
+        /* Changed from center to flex-start for left alignment */
+        align-items: flex-start;
       }
       .contacto-features li {
         display: flex;
@@ -1884,6 +1899,10 @@
         margin: 0;
         color: #555;
         font-size: 0.97rem;
+      }
+      /* Added to left align text inside the divs in contacto-features list items */
+      .contacto-features li > div {
+        text-align: left;
       }
       .contacto-formulario {
         flex: 1 1 340px;
@@ -2025,10 +2044,10 @@
   <footer class="footer">
     <div class="footer-separator"></div>
     <div class="footer-main">
-      <div class="footer-col footer-col-menu">
+      <div class="footer-col footer-col-menu" style="margin-right: 40px;">
         <img src="assets/images/logos/ads_logo_gold.svg" alt="ADS" class="footer-logo-main" style="max-width:120px; width:100%; height:auto; display:block; margin:0 auto 18px auto;">
       </div>
-      <div class="footer-col footer-col-contact">
+      <div class="footer-col footer-col-contact" style="margin-left: 40px;">
         <div class="footer-contact-icons footer-contact-icons-center">
           <a href="https://wa.me/message/D4XAUNTSHSDMN1" target="_blank" rel="noopener" class="footer-icon-link" title="WhatsApp">
             <img src="assets/images/icons/iconowhatsapp.jpg" alt="WhatsApp" class="footer-social-icon">
@@ -2036,14 +2055,17 @@
           <a href="https://www.instagram.com/ads.restauraciones?igsh=cWFqbnk2cHZkMzhm" target="_blank" rel="noopener" class="footer-icon-link" title="Instagram">
             <img src="assets/images/icons/instagram.png" alt="Instagram" class="footer-social-icon">
           </a>
-          <a href="mailto:soporteadsrestauraciones@gmail.com" class="footer-icon-link" title="Enviar correo">
+          <a href="mailto:info@adsrestauraciones.com" class="footer-icon-link" title="Enviar correo">
             <img src="assets/images/icons/gmail.png" alt="Gmail" class="footer-social-icon">
           </a>
         </div>
-        <div class="footer-contact-info footer-contact-info-responsive"></div>
+        <div class="footer-contact-info footer-contact-info-responsive">
+          <p style="margin: 4px 0 0 0; color: #fff7d0; font-weight: normal; text-align: left;">info@adsrestauraciones.com</p>
+          <p style="margin: 2px 0 0 0; color: #fff7d0; font-weight: normal; text-align: left;">+584241581088</p>
+        </div>
     <style>
       .footer-contact-info-responsive {
-        text-align: center;
+        text-align: left;
         font-size: 1.01rem;
         word-break: break-all;
         max-width: 98vw;
@@ -2070,15 +2092,15 @@
         </form>
       </div>
     </div>
-    <div class="footer-copy">
-      ADS Restauraciones 2025 © Todos los derechos reservados.
-    </div>
+  <div class="footer-copy" style="text-align: center;">
+    ADS Restauraciones 2025 © Todos los derechos reservados.
+  </div>
     <style>
       .footer-main {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
+        justify-content: center; /* Changed from space-between to center */
+        align-items: center; /* Changed from flex-start to center */
         gap: 32px;
         padding: 32px 16px 16px 16px;
         background: #6b5612;
@@ -2088,7 +2110,7 @@
       }
       .footer-logo-main {
         max-width: 120px;
-        width: 100%;
+        width: 120%;
         height: auto;
         display: block;
         margin: 0 auto 18px auto;
@@ -2097,7 +2119,7 @@
         display: flex;
         gap: 18px;
         margin-bottom: 12px;
-        justify-content: flex-start;
+        justify-content: center; /* Changed from flex-start to center */
       }
       .footer-contact-icons-center {
         justify-content: center !important;
